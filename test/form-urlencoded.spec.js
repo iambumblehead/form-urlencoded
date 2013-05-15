@@ -92,7 +92,7 @@ describe("FormUrlencoded.encode", function () {
       propArr1 : [null, null, 1]
     },
         result = FormUrlencoded.encode(begin),
-        resultExpected = '&&propArr1%5B%5D=1';
+        resultExpected = 'propArr1%5B%5D=1';
 
     expect( result ).toBe( resultExpected );
   });
