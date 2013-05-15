@@ -23,18 +23,18 @@ var formUrlencoded = module.exports = {
     }
 
     function getNestVals (name, value) {
-      var type = typeof value;
+      var type = typeof value, f;
       if (type === 'string' || type === 'number') {
-        return encodeURIComponent(name) + '=' +
-          encodeURIComponent(value).replace(regexp, "+");
+        f = encodeURIComponent(name) + '=' +
+            encodeURIComponent(value).replace(regexp, "+");
       } else if (isArray(value)) {
-        return getArrNestVals(name, value);
+        f = getArrNestVals(name, value);
       } else if (type === 'object') {
-        return getObjNestVals(name, value);
+        f = getObjNestVals(name, value);
       } else if (type === 'boolean') {
-        return encodeURIComponent(name) + '=' + value;
+        f = encodeURIComponent(name) + '=' + value;
       }
-      return null;
+      return f;
     }
 
     for (var name in data) {
@@ -43,6 +43,7 @@ var formUrlencoded = module.exports = {
         pairs.push(val.valueOf());
       }
     }
+
     return pairs.join('&');
   }
 };
