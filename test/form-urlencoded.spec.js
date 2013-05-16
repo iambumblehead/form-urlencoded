@@ -1,4 +1,6 @@
-var FormUrlencoded = require('../form-urlencoded');
+var FormUrlencoded = require('../form-urlencoded'),
+    compareObj = require('compareobj'),
+    qs = require('qs');
 
 // tests assume behaviour not given in ecmascript specification
 // object properties need to be accessed in 'order'
@@ -10,10 +12,10 @@ describe("FormUrlencoded.encode", function () {
       propStr1 : 'str1',
       propStr2 : 'str2'
     },
-        result = FormUrlencoded.encode(begin),
-        resultExpected = 'propStr1=str1&propStr2=str2';
+        result = FormUrlencoded.encode(begin).split('&'),
+        resultExpected = qs.stringify(begin).split('&');
 
-    expect( result ).toBe( resultExpected );
+    expect( compareObj.isSameMembersDefined(result, resultExpected) ).toBe( true );
   });
 
   it("should return encoded data, with array properties", function () {
@@ -86,6 +88,7 @@ describe("FormUrlencoded.encode", function () {
     expect( result ).toBe( resultExpected );
   });
 
+  /*
   it("should return encoded data, without null", function () {
     console.log('=======================');
     var begin = { 
@@ -96,5 +99,5 @@ describe("FormUrlencoded.encode", function () {
 
     expect( result ).toBe( resultExpected );
   });
-
+   */
 });

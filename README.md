@@ -6,19 +6,19 @@ form-urlencoded
 
 UNDER DEVELOPMENT USE AT YOUR OWN RISK
 
-form-urlencoded encodes and decodes `x-www-form-urlencoded` string data. It may be used in an ecmascript environment, such as a browser or node.js.
+form-urlencoded encodes `x-www-form-urlencoded` string data. It may be used in an ecmascript environment, such as a browser or node.js.
 
 `application/x-www-form-urlencoded` is a string encoding used, primarily, when an HTML form is submitted. The data from a form will be serialised in this format before it is sent to a server.
 
 This format is not [well][1] [defined][2]. Serialising complex data, such as a javascript object, is a beyond current specifications.
 
-[Server][3] [softwares][4] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
+[Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
 
 [1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"
 [2]: http://www.w3.org/TR/html5/forms.html#url-encoded-form-data "w3c"
 [3]: http://nodejs.org/api/querystring.html               "node.js qs"
 [4]: www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html    "rails"
-
+[5]: https://github.com/visionmedia/node-querystring           "tj qs"
 
 ---------------------------------------------------------
 #### <a id="install"></a>INSTALL:
