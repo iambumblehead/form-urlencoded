@@ -1,6 +1,14 @@
-var isArray = require('util').isArray;
+// Filename: formurlencoded.js
+// Timestamp: 2013.10.06-21:36:29 (last modified)  
+// Author(s): Bumblehead (www.bumblehead.com)
 
-var formUrlencoded = module.exports = {
+if (!Array.isArray) {
+  Array.isArray = function (vArg) {
+    return Object.prototype.toString.call(vArg) === "[object Array]";
+  };
+}
+
+var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
   // input: {one:1,two:2} return: '[one]=1&[two]-2'
   encode : function (data) {
@@ -39,7 +47,7 @@ var formUrlencoded = module.exports = {
             encodeURIComponent(value).replace(regexp, "+");
       } else if (type === 'boolean') {
         f = encodeURIComponent(name) + '=' + value;
-      } else if (isArray(value)) {
+      } else if (Array.isArray(value)) {
         f = getArrNestVals(name, value);
       } else if (type === 'object') {
         f = getObjNestVals(name, value);
