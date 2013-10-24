@@ -18,7 +18,7 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
     function getNestValsArrAsStr(arr) {
       return arr.filter(function (e) {
-        return e.length ? true : false;
+        return (typeof e === 'string' && e.length) ? true : false;
       }).join('&');
     }
 
