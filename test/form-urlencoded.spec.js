@@ -88,6 +88,21 @@ describe("FormUrlencoded.encode", function () {
     expect( result ).toBe( resultExpected );
   });
 
+  it("should return encoded data, with properties sorted", function () {
+    var begin = {
+      c: 4,
+      b: {
+        z: 3,
+        y: 2
+      },
+      a: 1
+    },
+        result = FormUrlencoded.encode(begin, { sorted: true }),
+        resultExpected = 'a=1&b%5By%5D=2&b%5Bz%5D=3&c=4';
+
+    expect( result ).toBe( resultExpected );
+  });
+
   /*
   it("should return encoded data, without null", function () {
     console.log('=======================');

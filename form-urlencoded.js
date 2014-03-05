@@ -11,10 +11,11 @@ if (!Array.isArray) {
 var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
   // input: {one:1,two:2} return: '[one]=1&[two]-2'
-  encode : function (data) {
+  encode : function (data, options) {
     var pairs = [], regexp = /%20/g, // regex to match whitespace
         nvObjKeyStr = ':name[:prop]',
         nvArrKeyStr = ':name[]';
+    options = options || {};
 
     function getNestValsArrAsStr(arr) {
       return arr.filter(function (e) {
@@ -24,11 +25,13 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
     function getObjNestVals (name, obj) {
       var nestVals = [];
-      for (var o in obj) {
-        if (obj.hasOwnProperty(o)) {
-          nestVals.push(getNestVals(name + '[' + o + ']', obj[o]));
-        }
+      var keys = Object.keys(obj);
+      if (options.sorted) {
+        keys.sort();
       }
+      keys.forEach(function(key) {
+        nestVals.push(getNestVals(name + '[' + key + ']', obj[key]));
+      });
       return getNestValsArrAsStr(nestVals);
     }
 
@@ -55,11 +58,13 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
       return f;
     }
 
-    for (var name in data) {
-      if (data.hasOwnProperty(name)) {
-        pairs.push(getNestVals(name, data[name]));
-      }
+    var keys = Object.keys(data);
+    if (options.sorted) {
+      keys.sort();
     }
+    keys.forEach(function(key) {
+      pairs.push(getNestVals(key, data[key]));
+    });
 
     return getNestValsArrAsStr(pairs);
   }
