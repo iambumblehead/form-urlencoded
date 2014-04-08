@@ -66,7 +66,7 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
         return match.split("").map(function(str) {
           return "%" + ("0" + str.charCodeAt(0).toString(16)).slice(-2);
         }).join("");
-      });
+      }).replace(/ /g, "+");
     };
 
     var keys = Object.keys(data);
