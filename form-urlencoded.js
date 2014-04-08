@@ -64,7 +64,7 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
     var formEncodeString = function(value) {
       return value.replace(/([^ a-zA-Z0-9_.-]+)/g, function(match) {
         return match.split("").map(function(str) {
-          return "%" + ("0" + str.charCodeAt(0).toString(16)).slice(-2);
+          return "%" + ("0" + str.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
         }).join("");
       }).replace(/ /g, "+");
     };
