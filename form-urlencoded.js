@@ -45,7 +45,10 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
     function getNestVals (name, value) {
       var type = typeof value, f = null;
-      if (type === 'string' || type === 'number') {
+      if (type === 'string') {
+        f = encodeURIComponent(name) + '=' +
+          formEncodeString(value);
+      } else if (type === 'number') {
         f = encodeURIComponent(name) + '=' +
             encodeURIComponent(value).replace(regexp, "+");
       } else if (type === 'boolean') {
@@ -57,6 +60,14 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
       }
       return f;
     }
+
+    var formEncodeString = function(value) {
+      return value.replace(/([^ a-zA-Z0-9_.-]+)/g, function(match) {
+        return match.split("").map(function(str) {
+          return "%" + ("0" + str.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
+        }).join("");
+      }).replace(/ /g, "+");
+    };
 
     var keys = Object.keys(data);
     if (options.sorted) {
