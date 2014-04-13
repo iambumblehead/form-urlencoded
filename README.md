@@ -1,6 +1,6 @@
 form-urlencoded
 ===============
-**(c)[Bumblehead][0], 2013** [MIT-license](#license)  
+**(c)[Bumblehead][0],[JBlashill][6] 2013** [MIT-license](#license)  
 
 ### OVERVIEW:
 
@@ -12,12 +12,15 @@ This format is not [well][1] [defined][2]. Serialising complex data, such as a j
 
 [Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
 
+
 [0]: http://www.bumblehead.com                            "bumblehead"
 [1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"
 [2]: http://www.w3.org/TR/html5/forms.html#url-encoded-form-data "w3c"
 [3]: http://nodejs.org/api/querystring.html               "node.js qs"
 [4]: www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html    "rails"
 [5]: https://github.com/visionmedia/node-querystring           "tj qs"
+[6]: https://github.com/jblashill/form-urlencoded          "jblashill"
+
 
 ---------------------------------------------------------
 #### <a id="install"></a>INSTALL:
