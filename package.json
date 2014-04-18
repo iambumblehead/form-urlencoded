@@ -1,6 +1,11 @@
 {
   "name": "form-urlencoded",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "author": "Chris <chris@bumblehead.com>",
+  "contributors": [{
+      "name": "James",
+      "email": "james@blashill.com"
+  }],
   "repository": {
     "type": "git",
     "url": "https://github.com/iambumblehead/form-urlencoded.git"

@@ -1,14 +1,14 @@
 form-urlencoded
 ===============
-**(c)[Bumblehead][0],[JBlashill][6] 2013** [MIT-license](#license)  
+**(c)[Bumblehead][0],[JBlashill][6] 2013,2014** [MIT-license](#license)
 
 ### OVERVIEW:
 
 form-urlencoded encodes `x-www-form-urlencoded` string data. It may be used in an ecmascript environment, such as a browser or node.js.
 
-`application/x-www-form-urlencoded` is a string encoding used, primarily, when an HTML form is submitted. The data from a form will be serialised in this format before it is sent to a server.
+`application/x-www-form-urlencoded` is a string encoding used, primarily, when an HTML form is submitted. The form data is serialised in this format and sent to a server.
 
-This format is not [well][1] [defined][2]. Serialising complex data, such as a javascript object, is a beyond current specifications.
+The format is not [well][1] [defined][2]. Serialising complex data, such as a javascript object, is beyond the specification.
 
 [Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
 
@@ -27,7 +27,7 @@ This format is not [well][1] [defined][2]. Serialising complex data, such as a j
 
 form-urlencoded may be downloaded directly or installed through `npm`.
 
- * **npm**   
+ * **npm**
 
  ```bash
  $ npm install form-urlencoded
@@ -35,7 +35,7 @@ form-urlencoded may be downloaded directly or installed through `npm`.
 
  * **Direct Download**
  
- ```bash  
+ ```bash
  $ git clone https://github.com/iambumblehead/form-urlencoded.git
  ```
 
@@ -49,10 +49,9 @@ form-urlencoded may be downloaded directly or installed through `npm`.
  ```
 
 ---------------------------------------------------------
-
 #### <a id="get-started">GET STARTED:
 
- 1. **Object encoding**   
+ 1. **Object encoding**
 
  > ```javascript
    var FormUrlencoded = require('form-urlencoded');
@@ -62,15 +61,16 @@ form-urlencoded may be downloaded directly or installed through `npm`.
      propObj1 : { 
        objPropStr1 : 'objStr1', 
        objPropStr2 : 'objStr2'
-     }   
+     }
    });
    console.log(result);
    //propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2
    ```
    
 ---------------------------------------------------------
-
 #### <a id="license">License:
+
+![scrounge](http://github.com/iambumblehead/scroungejs/raw/master/img/hand.png) 
 
 (The MIT License)
 

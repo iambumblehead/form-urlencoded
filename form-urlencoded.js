@@ -1,56 +1,56 @@
 // Filename: formurlencoded.js
-// Timestamp: 2013.10.06-21:36:29 (last modified)  
+// Timestamp: 2014.04.18-10:08:38 (last modified)  
 // Author(s): Bumblehead (www.bumblehead.com)
 
-if (!Array.isArray) {
-  Array.isArray = function (vArg) {
-    return Object.prototype.toString.call(vArg) === "[object Array]";
-  };
-}
 
 var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
-
+  
   // input: {one:1,two:2} return: '[one]=1&[two]-2'
-  encode : function (data, options) {
-    var pairs = [], regexp = /%20/g, // regex to match whitespace
-        nvObjKeyStr = ':name[:prop]',
-        nvArrKeyStr = ':name[]';
-    options = options || {};
 
+  encode : function (data, options) {
     function getNestValsArrAsStr(arr) {
       return arr.filter(function (e) {
-        return (typeof e === 'string' && e.length) ? true : false;
+        return typeof e === 'string' && e.length;
       }).join('&');
     }
 
-    function getObjNestVals (name, obj) {
-      var nestVals = [];
+    function getKeys(obj) {
       var keys = Object.keys(obj);
-      if (options.sorted) {
-        keys.sort();
-      }
-      keys.forEach(function(key) {
-        nestVals.push(getNestVals(name + '[' + key + ']', obj[key]));
-      });
-      return getNestValsArrAsStr(nestVals);
+
+      return options && options.sorted ? keys.sort() : keys;
+    }
+
+    function getObjNestVals (name, obj) {
+      var objKeyStr = ':name[:prop]';
+
+      return getNestValsArrAsStr(getKeys(obj).map(function (key) {
+        return getNestVals(
+          objKeyStr.replace(/:name/, name).replace(/:prop/, key), obj[key]
+        );
+      }));
     }
 
     function getArrNestVals (name, arr) {
-      var nestVals = [], x, len;
-      for (x = 0, len = arr.length; x < len; x++) {
-        nestVals.push(getNestVals(name + '[]', arr[+x]));
-      }
-      return getNestValsArrAsStr(nestVals);
+      var arrKeyStr = ':name[]';
+
+      return getNestValsArrAsStr(arr.map(function (elem) {
+        return getNestVals(
+          arrKeyStr.replace(/:name/, name), elem
+        );
+      }));
     }
 
     function getNestVals (name, value) {
-      var type = typeof value, f = null;
+      var whitespaceRe = /%20/g,
+          type = typeof value, 
+          f = null;
+
       if (type === 'string') {
         f = encodeURIComponent(name) + '=' +
           formEncodeString(value);
       } else if (type === 'number') {
         f = encodeURIComponent(name) + '=' +
-            encodeURIComponent(value).replace(regexp, "+");
+            encodeURIComponent(value).replace(whitespaceRe, '+');
       } else if (type === 'boolean') {
         f = encodeURIComponent(name) + '=' + value;
       } else if (Array.isArray(value)) {
@@ -58,32 +58,25 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
       } else if (type === 'object') {
         f = getObjNestVals(name, value);
       }
+
       return f;
     }
 
+    // 5.1, http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
     function manuallyEncodeChar (ch) {
-      if (ch === ' ') {
-        return '+';
-      } else {
-        return "%" + ("0" + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
-      }
+      return '%' + ('0' + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
     };
 
-    var formEncodeString = function(value) {
+    function formEncodeString (value) {
       return value
         .replace(/[^ !'()~\*]*/g, encodeURIComponent)
-        .replace(/[ !'()~\*]/g, manuallyEncodeChar);
+        .replace(/ /g, '+')
+        .replace(/[!'()~\*]/g, manuallyEncodeChar);
     };
 
-    var keys = Object.keys(data);
-    if (options.sorted) {
-      keys.sort();
-    }
-    keys.forEach(function(key) {
-      pairs.push(getNestVals(key, data[key]));
-    });
-
-    return getNestValsArrAsStr(pairs);
+    return getNestValsArrAsStr(getKeys(data).map(function (key) {
+      return getNestVals(key, data[key]);
+    }));
   }
 };
 
