@@ -1,6 +1,6 @@
 // Filename: formurlencoded.js
-// Timestamp: 2014.04.18-10:08:38 (last modified)  
-// Author(s): Bumblehead (www.bumblehead.com)
+// Timestamp: 2014.04.18-10:14:24 (last modified)  
+// Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 
 
 var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
