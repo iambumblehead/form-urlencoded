@@ -51,21 +51,21 @@ form-urlencoded may be downloaded directly or installed through `npm`.
 ---------------------------------------------------------
 #### <a id="get-started">GET STARTED:
 
- 1. **Object encoding**
+**Object encoding**
 
- > ```javascript
-   var FormUrlencoded = require('form-urlencoded');
-   var result = FormUrlencoded.encode({
-     propStr1 : 'str1',
-     propStr2 : 'str2',
-     propObj1 : { 
-       objPropStr1 : 'objStr1', 
-       objPropStr2 : 'objStr2'
-     }
-   });
-   console.log(result);
-   //propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2
-   ```
+```javascript
+var FormUrlencoded = require('form-urlencoded');
+var result = FormUrlencoded.encode({
+  propStr1 : 'str1',
+  propStr2 : 'str2',
+  propObj1 : { 
+    objPropStr1 : 'objStr1', 
+    objPropStr2 : 'objStr2'
+  }
+});
+console.log(result);
+//propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2
+```
    
 ---------------------------------------------------------
 #### <a id="license">License:
