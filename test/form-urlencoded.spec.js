@@ -88,6 +88,17 @@ describe("FormUrlencoded.encode", function () {
     expect( result ).toBe( resultExpected );
   });
 
+  it("should return encoded data, with null", function () {
+    var begin = { 
+      propNull1 : null,
+      propStr1 : 'str1'
+    },
+        result = FormUrlencoded.encode(begin),
+        resultExpected = 'propNull1=null&propStr1=str1';
+
+    expect( result ).toBe( resultExpected );
+  });
+
   it("should return encoded data, with properties sorted", function () {
     var begin = {
       c: 4,

@@ -55,6 +55,8 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
         f = encodeURIComponent(name) + '=' + value;
       } else if (Array.isArray(value)) {
         f = getArrNestVals(name, value);
+      } else if (value === null) {
+        f = encodeURIComponent(name) + '=null';
       } else if (type === 'object') {
         f = getObjNestVals(name, value);
       }
