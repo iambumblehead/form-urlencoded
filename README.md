@@ -1,16 +1,10 @@
 form-urlencoded
 ===============
-**(c)[Bumblehead][0],[JBlashill][6] 2013,2014** [MIT-license](#license)
+**(c)[Bumblehead][0],[JBlashill][6] 2012-2015** [MIT-license](#license)
 
-### OVERVIEW:
+form-urlencoded returns `x-www-form-urlencoded` string data. The encoding is often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
 
-form-urlencoded encodes `x-www-form-urlencoded` string data. It may be used in an ecmascript environment, such as a browser or node.js.
-
-`application/x-www-form-urlencoded` is a string encoding used, primarily, when an HTML form is submitted. The form data is serialised in this format and sent to a server.
-
-The format is not [well][1] [defined][2]. Serialising complex data, such as a javascript object, is beyond the specification.
-
-[Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
+Serialising complex data, such as a javascript object, is beyond [the][1] [specification][2]. [Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
 
 
 [0]: http://www.bumblehead.com                            "bumblehead"
@@ -23,11 +17,9 @@ The format is not [well][1] [defined][2]. Serialising complex data, such as a ja
 
 
 ---------------------------------------------------------
-#### <a id="install"></a>INSTALL:
+#### <a id="install"></a>install
 
 form-urlencoded may be downloaded directly or installed through `npm`.
-
-**npm**
 
 ```bash
 $ npm install form-urlencoded
@@ -40,7 +32,7 @@ $ npm test
 ```
 
 ---------------------------------------------------------
-#### <a id="encode">encode:
+#### <a id="encode">encode
 
 ```javascript
 var formurlencoded = require('form-urlencoded');
@@ -79,7 +71,7 @@ console.log(formurlencoded.encode(obj, {
 
 (The MIT License)
 
-Copyright (c) 2012 [Bumblehead][0] <chris@bumblehead.com>
+Copyright (c) 2012-2015 [Bumblehead][0] <chris@bumblehead.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
