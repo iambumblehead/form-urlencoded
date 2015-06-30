@@ -8,6 +8,10 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
   // input: {one:1,two:2} return: '[one]=1&[two]-2'
 
   encode : function (data, options) {
+    var opts = typeof options === 'object' ? options : {},
+        optignorenull = opts.ignorenull || false,
+        optsorted     = opts.sorted || false;
+    
     function getNestValsArrAsStr(arr) {
       return arr.filter(function (e) {
         return typeof e === 'string' && e.length;
@@ -17,7 +21,7 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
     function getKeys(obj) {
       var keys = Object.keys(obj);
 
-      return options && options.sorted ? keys.sort() : keys;
+      return optsorted ? keys.sort() : keys;
     }
 
     function getObjNestVals (name, obj) {
@@ -42,23 +46,24 @@ var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
 
     function getNestVals (name, value) {
       var whitespaceRe = /%20/g,
+          encode = encodeURIComponent,
           type = typeof value, 
           f = null;
 
-      if (type === 'string') {
-        f = encodeURIComponent(name) + '=' +
-          formEncodeString(value);
+      if (Array.isArray(value)) {      
+        f = getArrNestVals(name, value);        
+      } else if (type === 'string') {
+        f = encode(name) + '=' + formEncodeString(value);
       } else if (type === 'number') {
-        f = encodeURIComponent(name) + '=' +
-            encodeURIComponent(value).replace(whitespaceRe, '+');
+        f = encode(name) + '=' + encode(value).replace(whitespaceRe, '+');
       } else if (type === 'boolean') {
-        f = encodeURIComponent(name) + '=' + value;
-      } else if (Array.isArray(value)) {
-        f = getArrNestVals(name, value);
-      } else if (value === null) {
-        f = encodeURIComponent(name) + '=null';
+        f = encode(name) + '=' + value;
       } else if (type === 'object') {
-        f = getObjNestVals(name, value);
+        if (value !== null) {
+          f = getObjNestVals(name, value);          
+        } else if (!optignorenull) {
+          f = encode(name) + '=null';          
+        }
       }
 
       return f;

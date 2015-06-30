@@ -54,8 +54,8 @@ form-urlencoded may be downloaded directly or installed through `npm`.
 **Object encoding**
 
 ```javascript
-var FormUrlencoded = require('form-urlencoded');
-var result = FormUrlencoded.encode({
+var formurlencoded = require('form-urlencoded');
+var result = formurlencoded.encode({
   propStr1 : 'str1',
   propStr2 : 'str2',
   propObj1 : { 
@@ -65,6 +65,20 @@ var result = FormUrlencoded.encode({
 });
 console.log(result);
 //propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2
+```
+
+an options parameter may be passed to the encode function
+```javascript
+var result = formurlencoded.encode({
+  propStr1 : null,
+  propStr2 : 'str2',
+  propStr3 : [null, 5, 1, 6]
+}, {
+  ignorenull : true,
+  sorted : true
+});
+console.log(result);
+//propStr2=str2&propStr3%5B%5D=5&propStr3%5B%5D=1&propStr3%5B%5D=6
 ```
    
 ---------------------------------------------------------
