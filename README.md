@@ -27,58 +27,47 @@ The format is not [well][1] [defined][2]. Serialising complex data, such as a ja
 
 form-urlencoded may be downloaded directly or installed through `npm`.
 
- * **npm**
+**npm**
 
- ```bash
- $ npm install form-urlencoded
- ```
+```bash
+$ npm install form-urlencoded
+```
 
- * **Direct Download**
- 
- ```bash
- $ git clone https://github.com/iambumblehead/form-urlencoded.git
- ```
+to run tests, use `npm test` from a shell.
 
----------------------------------------------------------
-#### <a id="test"></a>TEST:
-
- to run tests, use `npm test` from a shell.
-
- ```bash
- $ npm test
- ```
+```bash
+$ npm test
+```
 
 ---------------------------------------------------------
-#### <a id="get-started">GET STARTED:
-
-**Object encoding**
+#### <a id="encode">encode:
 
 ```javascript
 var formurlencoded = require('form-urlencoded');
-var result = formurlencoded.encode({
+var obj = {
   propStr1 : 'str1',
   propStr2 : 'str2',
-  propObj1 : { 
-    objPropStr1 : 'objStr1', 
-    objPropStr2 : 'objStr2'
+  propStr3 : 'str2',
+  propArr : [3, { prop : 'val' }, 1, null, 6],
+  propObj : { 
+    objPropStr1 : 'objStr1',
+    objPropStr2 : null
   }
-});
-console.log(result);
-//propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2
-```
+};
 
-an options parameter may be passed to the encode function
-```javascript
-var result = formurlencoded.encode({
-  propStr1 : null,
-  propStr2 : 'str2',
-  propStr3 : [null, 5, 1, 6]
-}, {
+// propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
+// 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
+// %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
+// 1&propObj%5BobjPropStr2%5D=null
+
+console.log(formurlencoded.encode(obj, {
   ignorenull : true,
   sorted : true
-});
-console.log(result);
-//propStr2=str2&propStr3%5B%5D=5&propStr3%5B%5D=1&propStr3%5B%5D=6
+}));
+
+// propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
+// D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
+// pStr1=str1&propStr2=str2&propStr3=str2
 ```
    
 ---------------------------------------------------------

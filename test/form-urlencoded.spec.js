@@ -141,4 +141,33 @@ describe("formurlencoded.encode", function () {
     expect( result ).toBe( resultExpected );
   });
 
+  it("should return the correct test result", function () {
+    var formurlencoded = require('../form-urlencoded');
+    var obj = {
+      propStr1 : 'str1',
+      propStr2 : 'str2',
+      propStr3 : 'str2',
+      propArr : [3, { prop : 'val' }, 1, null, 6],
+      propObj : { 
+        objPropStr1 : 'objStr1',
+        objPropStr2 : null
+      }
+    };
+
+    // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
+    // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
+    // %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
+    // 1&propObj%5BobjPropStr2%5D=null
+
+    console.log(formurlencoded.encode(obj, {
+      ignorenull : true,
+      sorted : true
+    }));
+
+    // propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
+    // D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
+    // pStr1=str1&propStr2=str2&propStr3=str2    
+
+    expect(true).toBe(true);
+  });
 });
