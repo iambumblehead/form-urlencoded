@@ -154,6 +154,8 @@ describe("formurlencoded.encode", function () {
       }
     };
 
+    console.log(formurlencoded.encode(obj));
+    
     // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
     // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
     // %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
