@@ -1,6 +1,7 @@
 {
   "name": "form-urlencoded",
-  "version": "0.1.04",
+  "main": "form-urlencoded",
+  "version": "0.1.05",
   "author": "Chris <chris@bumblehead.com>",
   "contributors": [{
     "name": "James",

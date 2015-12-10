@@ -3,7 +3,7 @@
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 
 
-var formurlencoded = ((typeof module === 'object') ? module : {}).exports = {
+var formurlencoded = module.exports = {
   
   // input: {one:1,two:2} return: '[one]=1&[two]-2'
 
