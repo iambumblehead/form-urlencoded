@@ -43,7 +43,7 @@ console.log(formurlencoded.encode(obj, {
 [4]: www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html    "rails"
 [5]: https://github.com/visionmedia/node-querystring           "tj qs"
 [6]: https://github.com/jblashill/form-urlencoded          "jblashill"
-[7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_60x60.png
+[7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_40x40.png
 
 ---------------------------------------------------------
 #### <a id="license">license
