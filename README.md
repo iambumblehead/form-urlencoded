@@ -1,38 +1,12 @@
 form-urlencoded
 ===============
-**(c)[Bumblehead][0],[JBlashill][6] 2012-2015** [MIT-license](#license)
+**(c)[Bumblehead][0],[JBlashill][6] 2012,2013,2014,2015,2016** [MIT-license](#license)
 
-form-urlencoded returns `x-www-form-urlencoded` string data. The encoding is often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
+[![es5 classic][7]][7]
 
-Serialising complex data, such as a javascript object, is beyond [the][1] [specification][2]. [Server][3] [softwares][5] do share methods for handling complex urlencoded data and so there is a "defacto" standard for serializing such data. This is the standard that form-urlencoded follows.
+form-urlencoded returns `x-www-form-urlencoded` string data, an encoding often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
 
-
-[0]: http://www.bumblehead.com                            "bumblehead"
-[1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"
-[2]: http://www.w3.org/TR/html5/forms.html#url-encoded-form-data "w3c"
-[3]: http://nodejs.org/api/querystring.html               "node.js qs"
-[4]: www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html    "rails"
-[5]: https://github.com/visionmedia/node-querystring           "tj qs"
-[6]: https://github.com/jblashill/form-urlencoded          "jblashill"
-
-
----------------------------------------------------------
-#### <a id="install"></a>install
-
-form-urlencoded may be downloaded directly or installed through `npm`.
-
-```bash
-$ npm install form-urlencoded
-```
-
-to run tests, use `npm test` from a shell.
-
-```bash
-$ npm test
-```
-
----------------------------------------------------------
-#### <a id="encode">encode
+Serialising complex data (a javascript object) is beyond [the][1] [specification][2]. [Server][3] [softwares][5] do share methods for handling complex urlencoded data making the "defacto" standard which form-urlencoded follows.
 
 ```javascript
 var formurlencoded = require('form-urlencoded');
@@ -63,15 +37,24 @@ console.log(formurlencoded.encode(obj, {
 // D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
 // pStr1=str1&propStr2=str2&propStr3=str2
 ```
-   
+
+[0]: http://www.bumblehead.com                            "bumblehead"
+[1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"
+[2]: http://www.w3.org/TR/html5/forms.html#url-encoded-form-data "w3c"
+[3]: http://nodejs.org/api/querystring.html               "node.js qs"
+[4]: www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html    "rails"
+[5]: https://github.com/visionmedia/node-querystring           "tj qs"
+[6]: https://github.com/jblashill/form-urlencoded          "jblashill"
+[7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_120x120.png
+
 ---------------------------------------------------------
-#### <a id="license">License:
+#### <a id="license">license
 
 ![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png) 
 
 (The MIT License)
 
-Copyright (c) 2012-2015 [Bumblehead][0] <chris@bumblehead.com>
+Copyright (c) 2012-2016 [Bumblehead][0] <chris@bumblehead.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
