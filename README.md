@@ -1,6 +1,6 @@
-form-urlencoded [![es5 classic][7]][7] 
+form-urlencoded
 ===============
-**(c)[Bumblehead][0],[JBlashill][6] 2012,2013,2014,2015,2016** [MIT-license](#license)
+**(c)[Bumblehead][0],[JBlashill][6] 2012,2013,2014,2015,2016**
 
 form-urlencoded returns `x-www-form-urlencoded` string data, an encoding often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
 
@@ -45,10 +45,8 @@ console.log(formurlencoded.encode(obj, {
 [6]: https://github.com/jblashill/form-urlencoded          "jblashill"
 [7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_40x40.png
 
----------------------------------------------------------
-#### <a id="license">license
 
-![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png) 
+![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png)[![es5 classic][7]][7] 
 
 (The MIT License)
 
