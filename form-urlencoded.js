@@ -53,7 +53,7 @@ var formurlencoded = module.exports = function (data, options) {
     } else if (type === 'string') {
       f = encode(name) + '=' + formEncodeString(value);
     } else if (type === 'number') {
-      f = encode(name) + '=' + encode(value).replace(whitespaceRe, '+');
+      f = encode(name) + '=' + formEncodeString(value);
     } else if (type === 'boolean') {
       f = encode(name) + '=' + value;
     } else if (Array.isArray(value)) {      
@@ -70,7 +70,7 @@ var formurlencoded = module.exports = function (data, options) {
   }
 
   function formEncodeString (value) {
-    return value
+    return String(value)
       .replace(/[^ !'()~\*]*/g, encodeURIComponent)
       .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, manuallyEncodeChar);
