@@ -1,8 +1,9 @@
 {
   "name": "form-urlencoded",
   "main": "form-urlencoded",
-  "version": "0.1.09",
+  "version": "1.0.0",
   "author": "Chris <chris@bumblehead.com>",
+  "license" : "MIT",
   "contributors": [{
     "name": "James",
     "email": "james@blashill.com"

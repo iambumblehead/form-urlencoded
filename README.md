@@ -19,14 +19,14 @@ var obj = {
   }
 };
 
-console.log(formurlencoded.encode(obj));
+console.log(formurlencoded(obj));
 
 // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
 // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
 // %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
 // 1&propObj%5BobjPropStr2%5D=null
 
-console.log(formurlencoded.encode(obj, {
+console.log(formurlencoded(obj, {
   ignorenull : true,
   sorted : true
 }));
