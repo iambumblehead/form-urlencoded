@@ -43,8 +43,7 @@ var formurlencoded = module.exports = function (data, options) {
   }
 
   function getNestVals (name, value) {
-    var whitespaceRe = /%20/g,
-        encode = encodeURIComponent,
+    var encode = encodeURIComponent,
         type = typeof value, 
         f = null;
 
@@ -65,15 +64,13 @@ var formurlencoded = module.exports = function (data, options) {
     return f;
   }
 
-  function manuallyEncodeChar (ch) {
-    return '%' + ('0' + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
-  }
-
   function formEncodeString (value) {
     return String(value)
       .replace(/[^ !'()~\*]*/g, encodeURIComponent)
-      .replace(/ /g, '+')
-      .replace(/[!'()~\*]/g, manuallyEncodeChar);
+      .replace(/ /g, '+')    
+      .replace(/[!'()~\*]/g, function manuallyEncodeChar (ch) {
+        return '%' + ('0' + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
+      });
   }
 
   return getNestValsArrAsStr(getKeys(data).map(function (key) {
