@@ -57,12 +57,8 @@ var formurlencoded = module.exports = function (data, options) {
 
     if (value === null) {
       f = optignorenull ? f : encode(name) + '=' + f;
-    } else if (type === 'string') {
+    } else if (/string|number|boolean/.test(type)) {
       f = encode(name) + '=' + encode(value);
-    } else if (type === 'number') {
-      f = encode(name) + '=' + encode(value);
-    } else if (type === 'boolean') {
-      f = encode(name) + '=' + value;
     } else if (Array.isArray(value)) {      
       f = getArrNestVals(name, value);
     } else if (type === 'object') {
