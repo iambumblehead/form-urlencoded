@@ -2,13 +2,11 @@
 // Timestamp: 2016.01.10-10:46:11 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 //
-// 5.1, http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
+// http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
 // input: {one:1,two:2} return: '[one]=1&[two]=2'
 
-var formurlencoded = module.exports = function (data, options) {
-  var opts = typeof options === 'object' ? options : {},
-      optignorenull = opts.ignorenull || false,
-      optsorted     = opts.sorted || false;
+var formurlencoded = module.exports = function (data, opts) {
+  opts = typeof opts === 'object' ? opts : {};
 
   function encode (value) {
     return String(value)
@@ -22,7 +20,7 @@ var formurlencoded = module.exports = function (data, options) {
   function getKeys(obj) {
     var keys = Object.keys(obj);
 
-    return optsorted ? keys.sort() : keys;
+    return opts.sorted ? keys.sort() : keys;
   }
   
   function joinFilter (arr) {
@@ -32,22 +30,14 @@ var formurlencoded = module.exports = function (data, options) {
   }
 
   function getObjNestVals (name, obj) {
-    var objKeyStr = ':name[:prop]';
-
     return joinFilter(getKeys(obj).map(function (key) {
-      return getNestVals(
-        objKeyStr.replace(/:name/, name).replace(/:prop/, key), obj[key]
-      );
+      return getNestVals(name + '[' + key + ']', obj[key]);
     }));
   }
 
   function getArrNestVals (name, arr) {
-    var arrKeyStr = ':name[]';
-
     return joinFilter(arr.map(function (elem) {
-      return getNestVals(
-        arrKeyStr.replace(/:name/, name), elem
-      );
+      return getNestVals(name + '[]', elem);
     }));
   }
 
@@ -56,7 +46,7 @@ var formurlencoded = module.exports = function (data, options) {
         f = null;
 
     if (value === null) {
-      f = optignorenull ? f : encode(name) + '=' + f;
+      f = opts.ignorenull ? f : encode(name) + '=' + f;
     } else if (/string|number|boolean/.test(type)) {
       f = encode(name) + '=' + encode(value);
     } else if (Array.isArray(value)) {      
