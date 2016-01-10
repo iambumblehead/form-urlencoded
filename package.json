@@ -1,9 +1,11 @@
 {
   "name": "form-urlencoded",
   "main": "form-urlencoded",
-  "version": "1.0.7",
+  "version": "1.0.9",
+  "description": "Return an object as an `x-www-form-urlencoded` string",
   "author": "Chris <chris@bumblehead.com>",
   "license" : "MIT",
+  "readmeFilename": "README.md",
   "contributors": [{
     "name": "James",
     "email": "james@blashill.com"
@@ -31,7 +33,5 @@
   },
   "scripts" : {
     "test" : "node node_modules/jasmine-node/bin/jasmine-node --verbose test/"
-  },    
-  "readmeFilename": "README.md",
-  "description": "Encodes `x-www-form-urlencoded` string data"
+  }
 }

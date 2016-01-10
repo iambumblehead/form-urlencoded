@@ -4,9 +4,8 @@ form-urlencoded
 
 [![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded)
 
-form-urlencoded returns `x-www-form-urlencoded` string data, an encoding often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
+Returns `x-www-form-urlencoded` string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server.
 
-Serialising complex data (a javascript object) is beyond [the][1] [specification][2]. [Server][3] [softwares][5] do share methods for handling complex urlencoded data making the "defacto" standard which form-urlencoded follows.
 
 ```javascript
 var formurlencoded = require('form-urlencoded');
