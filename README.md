@@ -1,6 +1,7 @@
 form-urlencoded
 ===============
 **(c)[Bumblehead][0],[JBlashill][6] 2012,2013,2014,2015,2016**
+
 [![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded)
 
 form-urlencoded returns `x-www-form-urlencoded` string data, an encoding often used when an HTML form is submitted. The form data is serialised in this format and sent to a server.
