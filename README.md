@@ -21,7 +21,6 @@ var obj = {
 };
 
 console.log(formurlencoded(obj));
-
 // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
 // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
 // %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
@@ -31,7 +30,6 @@ console.log(formurlencoded(obj, {
   ignorenull : true,
   sorted : true
 }));
-
 // propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
 // D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
 // pStr1=str1&propStr2=str2&propStr3=str2
