@@ -11,18 +11,18 @@ var formurlencoded = module.exports = function (data, opts) {
   function encode (value) {
     return String(value)
       .replace(/[^ !'()~\*]*/g, encodeURIComponent)
-      .replace(/ /g, '+')    
+      .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, function manuallyEncodeChar (ch) {
         return '%' + ('0' + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
       });
   }
-  
-  function getKeys(obj) {
+
+  function getKeys (obj) {
     var keys = Object.keys(obj);
 
     return opts.sorted ? keys.sort() : keys;
   }
-  
+
   function joinFilter (arr) {
     return arr.filter(function (e) {
       return typeof e === 'string' && e.length;
@@ -42,17 +42,17 @@ var formurlencoded = module.exports = function (data, opts) {
   }
 
   function getNestVals (name, value) {
-    var type = typeof value, 
+    var type = typeof value,
         f = null;
 
     if (value === null) {
       f = opts.ignorenull ? f : encode(name) + '=' + f;
     } else if (/string|number|boolean/.test(type)) {
       f = encode(name) + '=' + encode(value);
-    } else if (Array.isArray(value)) {      
+    } else if (Array.isArray(value)) {
       f = getArrNestVals(name, value);
     } else if (type === 'object') {
-      f = getObjNestVals(name, value);      
+      f = getObjNestVals(name, value);
     }
 
     return f;
