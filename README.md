@@ -14,25 +14,22 @@ var obj = {
   propStr2 : 'str2',
   propStr3 : 'str2',
   propArr : [3, { prop : 'val' }, 1, null, 6],
-  propObj : { 
-    objPropStr1 : 'objStr1',
-    objPropStr2 : null
-  }
+  propObj : {prop1 : null, prop2 : ['elem']}
 };
 
 console.log(formurlencoded(obj));
 // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
 // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
-// %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
-// 1&propObj%5BobjPropStr2%5D=null
+// %5D=null&propArr%5B%5D=6&propObj%5Bprop1%5D=null&propObj
+// %5Bprop2%5D%5B%5D=elem
 
 console.log(formurlencoded(obj, {
   ignorenull : true,
   sorted : true
 }));
 // propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
-// D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
-// pStr1=str1&propStr2=str2&propStr3=str2
+// D=1&propArr%5B%5D=6&propObj%5Bprop2%5D%5B%5D=elem&propSt
+// r1=str1&propStr2=str2&propStr3=str2
 ```
 
 [0]: http://www.bumblehead.com                            "bumblehead"

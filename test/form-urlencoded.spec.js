@@ -1,5 +1,5 @@
 // Filename: form-urlencoded.spec.js  
-// Timestamp: 2016.01.10-10:37:21 (last modified)
+// Timestamp: 2016.01.12-22:00:46 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
 var formurlencoded = require('../form-urlencoded'),
@@ -152,10 +152,7 @@ describe("formurlencoded.encode", function () {
       propStr2 : 'str2',
       propStr3 : 'str2',
       propArr : [3, { prop : 'val' }, 1, null, 6],
-      propObj : { 
-        objPropStr1 : 'objStr1',
-        objPropStr2 : null
-      }
+      propObj : {prop1 : null, prop2 : ['elem']}
     };
 
     console.log(formurlencoded(obj));
