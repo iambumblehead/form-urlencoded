@@ -1,5 +1,5 @@
 // Filename: form-urlencoded.spec.js  
-// Timestamp: 2016.01.12-22:00:46 (last modified)
+// Timestamp: 2016.01.14-00:05:09 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
 var formurlencoded = require('../form-urlencoded'),
@@ -148,28 +148,17 @@ describe("formurlencoded.encode", function () {
   it("should return the correct test result", function () {
     var formurlencoded = require('../form-urlencoded');
     var obj = {
-      propStr1 : 'str1',
-      propStr2 : 'str2',
-      propStr3 : 'str2',
-      propArr : [3, { prop : 'val' }, 1, null, 6],
-      propObj : {prop1 : null, prop2 : ['elem']}
+      str : 'val',
+      num : 0,
+      arr : [3, {prop : false}, 1, null, 6],
+      obj : {prop1 : null, prop2 : ['elem']}
     };
 
     console.log(formurlencoded(obj));
-    
-    // propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
-    // 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
-    // %5D=null&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr
-    // 1&propObj%5BobjPropStr2%5D=null
-
     console.log(formurlencoded(obj, {
       ignorenull : true,
       sorted : true
     }));
-
-    // propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
-    // D=1&propArr%5B%5D=6&propObj%5BobjPropStr1%5D=objStr1&pro
-    // pStr1=str1&propStr2=str2&propStr3=str2    
 
     expect(true).toBe(true);
   });

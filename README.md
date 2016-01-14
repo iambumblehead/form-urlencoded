@@ -10,26 +10,23 @@ Returns `x-www-form-urlencoded` string data, an encoding often used when an [HTM
 ```javascript
 var formurlencoded = require('form-urlencoded');
 var obj = {
-  propStr1 : 'str1',
-  propStr2 : 'str2',
-  propStr3 : 'str2',
-  propArr : [3, { prop : 'val' }, 1, null, 6],
-  propObj : {prop1 : null, prop2 : ['elem']}
+  str : 'val',
+  num : 0,
+  arr : [3, {prop : false}, 1, null, 6],
+  obj : {prop1 : null, prop2 : ['elem']}
 };
 
 console.log(formurlencoded(obj));
-// propStr1=str1&propStr2=str2&propStr3=str2&propArr%5B%5D=
-// 3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5D=1&propArr%5B
-// %5D=null&propArr%5B%5D=6&propObj%5Bprop1%5D=null&propObj
-// %5Bprop2%5D%5B%5D=elem
+// str=val&num=0&arr%5B%5D=3&arr%5B%5D%5Bprop%5D=false&arr%
+// 5B%5D=1&arr%5B%5D=null&arr%5B%5D=6&obj%5Bprop1%5D=null&o
+// bj%5Bprop2%5D%5B%5D=elem
 
 console.log(formurlencoded(obj, {
   ignorenull : true,
   sorted : true
 }));
-// propArr%5B%5D=3&propArr%5B%5D%5Bprop%5D=val&propArr%5B%5
-// D=1&propArr%5B%5D=6&propObj%5Bprop2%5D%5B%5D=elem&propSt
-// r1=str1&propStr2=str2&propStr3=str2
+// arr%5B%5D=3&arr%5B%5D%5Bprop%5D=false&arr%5B%5D=1&arr%5B
+// %5D=6&num=0&obj%5Bprop2%5D%5B%5D=elem&str=val
 ```
 
 [0]: http://www.bumblehead.com                            "bumblehead"
