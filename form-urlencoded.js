@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2016.01.10-10:46:11 (last modified)
+// Timestamp: 2016.01.17-14:31:12 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -17,31 +17,29 @@ var formurlencoded = module.exports = function (data, opts) {
       });
   }
 
-  function getKeys (obj) {
+  function keys (obj) {
     var keys = Object.keys(obj);
 
     return opts.sorted ? keys.sort() : keys;
   }
 
-  function joinFilter (arr) {
-    return arr.filter(function (e) {
-      return typeof e === 'string' && e.length;
-    }).join('&');
+  function filterjoin (arr) {
+    return arr.filter(function (e) { return e; }).join('&');
   }
 
-  function getObjNestVals (name, obj) {
-    return joinFilter(getKeys(obj).map(function (key) {
-      return getNestVals(name + '[' + key + ']', obj[key]);
+  function objnest (name, obj) {
+    return filterjoin(keys(obj).map(function (key) {
+      return nest(name + '[' + key + ']', obj[key]);
     }));
   }
 
-  function getArrNestVals (name, arr) {
-    return joinFilter(arr.map(function (elem) {
-      return getNestVals(name + '[]', elem);
+  function arrnest (name, arr) {
+    return filterjoin(arr.map(function (elem) {
+      return nest(name + '[]', elem);
     }));
   }
 
-  function getNestVals (name, value) {
+  function nest (name, value) {
     var type = typeof value,
         f = null;
 
@@ -50,15 +48,15 @@ var formurlencoded = module.exports = function (data, opts) {
     } else if (/string|number|boolean/.test(type)) {
       f = encode(name) + '=' + encode(value);
     } else if (Array.isArray(value)) {
-      f = getArrNestVals(name, value);
+      f = arrnest(name, value);
     } else if (type === 'object') {
-      f = getObjNestVals(name, value);
+      f = objnest(name, value);
     }
 
     return f;
   }
 
-  return joinFilter(getKeys(data).map(function (key) {
-    return getNestVals(encode(key), data[key]);
+  return filterjoin(keys(data).map(function (key) {
+    return nest(encode(key), data[key]);
   }));
 };
