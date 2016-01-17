@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2016.01.17-14:31:12 (last modified)
+// Timestamp: 2016.01.17-14:43:39 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -57,6 +57,6 @@ var formurlencoded = module.exports = function (data, opts) {
   }
 
   return filterjoin(keys(data).map(function (key) {
-    return nest(encode(key), data[key]);
+    return nest(key, data[key]);
   }));
 };
