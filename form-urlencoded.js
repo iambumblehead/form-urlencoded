@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2016.01.17-14:43:39 (last modified)
+// Timestamp: 2016.01.17-14:47:59 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -13,7 +13,7 @@ var formurlencoded = module.exports = function (data, opts) {
       .replace(/[^ !'()~\*]*/g, encodeURIComponent)
       .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, function manuallyEncodeChar (ch) {
-        return '%' + ('0' + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
+        return '%' + (0 + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
       });
   }
 
