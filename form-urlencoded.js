@@ -12,8 +12,8 @@ var formurlencoded = module.exports = function (data, opts) {
     return String(value)
       .replace(/[^ !'()~\*]*/g, encodeURIComponent)
       .replace(/ /g, '+')
-      .replace(/[!'()~\*]/g, function manuallyEncodeChar (ch) {
-        return '%' + (0 + ch.charCodeAt(0).toString(16)).slice(-2).toUpperCase();
+      .replace(/[!'()~\*]/g, function (ch) {
+        return '%' + (0 + ch.charCodeAt().toString(16)).slice(-2).toUpperCase();
       });
   }
 
