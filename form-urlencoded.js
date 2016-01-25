@@ -43,7 +43,7 @@ var formurlencoded = module.exports = function (data, opts) {
     var type = typeof value,
         f = null;
 
-    if (value === null) {
+    if (value === f) {
       f = opts.ignorenull ? f : encode(name) + '=' + f;
     } else if (/string|number|boolean/.test(type)) {
       f = encode(name) + '=' + encode(value);
