@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2016.01.18-15:36:37 (last modified)
+// Timestamp: 2016.03.07-12:29:28 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -10,7 +10,7 @@ var formurlencoded = module.exports = function (data, opts) {
 
   function encode (value) {
     return String(value)
-      .replace(/[^ !'()~\*]*/g, encodeURIComponent)
+      .replace(/[^ !'()~\*]/g, encodeURIComponent)
       .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, function (ch) {
         return '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase();
@@ -56,7 +56,7 @@ var formurlencoded = module.exports = function (data, opts) {
     return f;
   }
 
-  return filterjoin(keys(data).map(function (key) {
+  return data && filterjoin(keys(data).map(function (key) {
     return nest(key, data[key]);
   }));
 };

@@ -1,8 +1,8 @@
 {
   "name": "form-urlencoded",
   "main": "form-urlencoded",
-  "version": "1.2.0",
-  "description": "Return an object as an `x-www-form-urlencoded` string",
+  "version": "1.2.1",
+  "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license" : "MIT",
   "readmeFilename": "README.md",

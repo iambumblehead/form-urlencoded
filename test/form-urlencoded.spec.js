@@ -1,5 +1,5 @@
 // Filename: form-urlencoded.spec.js  
-// Timestamp: 2016.01.18-16:00:25 (last modified)
+// Timestamp: 2016.03.07-12:30:02 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
 var formurlencoded = require('../');
@@ -86,6 +86,16 @@ describe("formurlencoded.encode", function () {
       formurlencoded({c : 4, b : { z : 3, y : 2 }, a : 1}, { sorted: true })
     ).toBe( 'a=1&b%5By%5D=2&b%5Bz%5D=3&c=4' );
   });
+
+  it("should not break when null argument is given", function () {
+    expect( 
+      formurlencoded(null, { sorted: true })
+    ).toBe( null );
+
+    expect( 
+      formurlencoded(undefined, { sorted: true })
+    ).toBe( undefined );
+  });  
 
   it("should properly encode all ascii characters", function () {
     var testCharEncodingString = "";
