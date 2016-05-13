@@ -34,11 +34,9 @@ var formurlencoded = module.exports = function (data, opts) {
   }
 
   function arrnest (name, arr) {
-    return arr.length === 0
-      ? encode(name + '[]')
-      : filterjoin(arr.map(function (elem) {
+    return arr.length ? filterjoin(arr.map(function (elem) {
         return nest(name + '[]', elem);
-      }));
+    })) : encode(name + '[]');
   }
 
   function nest (name, value) {
