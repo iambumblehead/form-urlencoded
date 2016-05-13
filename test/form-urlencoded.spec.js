@@ -1,4 +1,4 @@
-// Filename: form-urlencoded.spec.js  
+// Filename: form-urlencoded.spec.js
 // Timestamp: 2016.03.07-12:30:02 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
@@ -29,12 +29,12 @@ describe("formurlencoded.encode", function () {
   });
 
   it("should return encoded data, with object properties", function () {
-    expect( 
+    expect(
       formurlencoded({
         propStr1 : 'str1',
         propStr2 : 'str2',
-        propObj1 : { 
-          objPropStr1 : 'objStr1', 
+        propObj1 : {
+          objPropStr1 : 'objStr1',
           objPropStr2 : 'objStr2'
         }
       })
@@ -45,16 +45,16 @@ describe("formurlencoded.encode", function () {
     expect( formurlencoded({
       propStr1 : 'str1',
       propStr2 : 'str2',
-      propObj1 : { 
-        objPropStr1 : 'objStr1', 
+      propObj1 : {
+        objPropStr1 : 'objStr1',
         objPropStr2 : 'objStr2',
         objPropObj1 : {
           propObj1Str1 : 'obj1Str1'
         },
         objPropArr1 : [{
-          propArr1Obj1Str1 : 'obj1Str1'          
+          propArr1Obj1Str1 : 'obj1Str1'
         }, {
-          propArr1Obj2Str1 : 'obj2Str1'          
+          propArr1Obj2Str1 : 'obj2Str1'
         }]
       }
     }) ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2&propObj1%5BobjPropObj1%5D%5BpropObj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B%5D%5BpropArr1Obj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B%5D%5BpropArr1Obj2Str1%5D=obj2Str1' );
@@ -82,20 +82,20 @@ describe("formurlencoded.encode", function () {
   });
 
   it("should return encoded data, with properties sorted", function () {
-    expect( 
+    expect(
       formurlencoded({c : 4, b : { z : 3, y : 2 }, a : 1}, { sorted: true })
     ).toBe( 'a=1&b%5By%5D=2&b%5Bz%5D=3&c=4' );
   });
 
   it("should not break when null argument is given", function () {
-    expect( 
+    expect(
       formurlencoded(null, { sorted: true })
     ).toBe( null );
 
-    expect( 
+    expect(
       formurlencoded(undefined, { sorted: true })
     ).toBe( undefined );
-  });  
+  });
 
   it("should properly encode all ascii characters", function () {
     var testCharEncodingString = "";
@@ -134,6 +134,25 @@ describe("formurlencoded.encode", function () {
     }));
 
     expect(true).toBe(true);
+  });
+
+  it("should return encoded empty array", function () {
+    expect(
+      formurlencoded({
+        emptyArr : []
+      })
+    ).toBe( 'emptyArr%5B%5D' );
+  });
+
+  it("should return encoded empty array inside an object", function() {
+    expect(
+      formurlencoded({
+        parent: {
+          foo: 'bar',
+          emptyArr: []
+        }
+      })
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' );
   });
 
 });
