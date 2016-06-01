@@ -155,4 +155,14 @@ describe("formurlencoded.encode", function () {
     ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' );
   });
 
+  it("should return encoded urls with unicode characters", function() {
+    expect(
+      formurlencoded({
+        parent: {
+          foo: '😀',
+        }
+      })
+    ).toBe( 'parent%5Bfoo%5D=%F0%9F%98%80' );
+  });
+
 });

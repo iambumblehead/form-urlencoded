@@ -10,7 +10,10 @@ var formurlencoded = module.exports = function (data, opts) {
 
   function encode (value) {
     return String(value)
-      .replace(/[^ !'()~\*]/g, encodeURIComponent)
+      // The following is an ES5 compatible version of .replace(/[^ !'()~\*]/gu, encodeURIComponent)
+      // Thanks to https://mothereff.in/regexpu
+      .replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent)
+
       .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, function (ch) {
         return '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase();
