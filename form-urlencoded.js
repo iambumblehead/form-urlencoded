@@ -6,14 +6,18 @@
 // input: {one:1,two:2} return: '[one]=1&[two]=2'
 
 var formurlencoded = module.exports = function (data, opts) {
-  opts = typeof opts === 'object' ? opts : {};
+  // ES5 compatible version of `/[^ !'()~\*]/gu`, https://mothereff.in/regexpu
+  var encodechar = new RegExp([
+    '(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|',
+    '[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|',
+    '(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])'
+  ].join(''), 'g');
 
+  opts = typeof opts === 'object' ? opts : {};
+  
   function encode (value) {
     return String(value)
-      // The following is an ES5 compatible version of .replace(/[^ !'()~\*]/gu, encodeURIComponent)
-      // Thanks to https://mothereff.in/regexpu
-      .replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent)
-
+      .replace(encodechar, encodeURIComponent)
       .replace(/ /g, '+')
       .replace(/[!'()~\*]/g, function (ch) {
         return '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase();
