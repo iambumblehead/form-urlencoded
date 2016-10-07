@@ -5,7 +5,7 @@
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
 // input: {one:1,two:2} return: '[one]=1&[two]=2'
 
-var formurlencoded = function (data, opts) {
+var formurlencoded = module.exports = function (data, opts) {
   // ES5 compatible version of `/[^ !'()~\*]/gu`, https://mothereff.in/regexpu
   var encodechar = new RegExp([
     '(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|',
