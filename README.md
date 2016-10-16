@@ -2,7 +2,7 @@ form-urlencoded
 ===============
 **(c)[Bumblehead][0],[JBlashill][6] 2012-2017**
 
-[![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded)[![Build Status](https://travis-ci.org/iambumblehead/form-urlencoded.svg?branch=master)](https://travis-ci.org/iambumblehead/form-urlencoded)
+[![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded) [![Build Status](https://travis-ci.org/iambumblehead/form-urlencoded.svg?branch=master)](https://travis-ci.org/iambumblehead/form-urlencoded)
 
 Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server.
 
