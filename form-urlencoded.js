@@ -1,6 +1,6 @@
 // Filename: formurlencoded.js
 // Timestamp: 2016.03.07-12:29:28 (last modified)
-// Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com)
+// Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
 // input: {one:1,two:2} return: '[one]=1&[two]=2'
