@@ -27,9 +27,9 @@ module.exports = function (data, opts) {
     }
 
     function keys(obj) {
-        var keys = Object.keys(obj);
+        var itemsKeys = Object.keys(obj);
 
-        return opts.sorted ? keys.sort() : keys;
+        return opts.sorted ? itemsKeys.sort() : itemsKeys;
     }
 
     function filterjoin(arr) {
