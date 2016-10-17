@@ -153,6 +153,19 @@ describe("formurlencoded.encode", function () {
         }
       })
     ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' );
+    /* todo
+    result
+    {
+      parent[foo]: bar
+      parent[emptyArr][]: null
+    }
+
+     must be
+     {
+       parent[foo]: bar
+       parent[emptyArr]: []
+     }
+     */
   });
 
   it("should return encoded urls with unicode characters", function() {
