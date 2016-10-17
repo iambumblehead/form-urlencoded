@@ -25,7 +25,7 @@ describe("formurlencoded.encode", function () {
         propStr2 : 'str2',
         propArr1 : ['arrStr1', 'arrStr2']
       })
-    ).toBe( 'propStr1=str1&propStr2=str2&propArr1%5B%5D=arrStr1&propArr1%5B%5D=arrStr2' );
+    ).toBe( 'propStr1=str1&propStr2=str2&propArr1%5B0%5D=arrStr1&propArr1%5B1%5D=arrStr2' );
   });
 
   it("should return encoded data, with object properties", function () {
@@ -57,19 +57,19 @@ describe("formurlencoded.encode", function () {
           propArr1Obj2Str1 : 'obj2Str1'
         }]
       }
-    }) ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2&propObj1%5BobjPropObj1%5D%5BpropObj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B%5D%5BpropArr1Obj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B%5D%5BpropArr1Obj2Str1%5D=obj2Str1' );
+    }) ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2&propObj1%5BobjPropObj1%5D%5BpropObj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B0%5D%5BpropArr1Obj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B1%5D%5BpropArr1Obj2Str1%5D=obj2Str1' );
   });
 
   it("should return encoded data, with numbers", function () {
     expect(
       formurlencoded({ propArr1 : [1, 2, 3] })
-    ).toBe( 'propArr1%5B%5D=1&propArr1%5B%5D=2&propArr1%5B%5D=3' );
+    ).toBe( 'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3' );
   });
 
   it("should return encoded data, with booleans", function () {
     expect(
       formurlencoded({propArr1 : [true, false, true]})
-    ).toBe( 'propArr1%5B%5D=true&propArr1%5B%5D=false&propArr1%5B%5D=true' );
+    ).toBe( 'propArr1%5B0%5D=true&propArr1%5B1%5D=false&propArr1%5B2%5D=true' );
   });
 
   it("should return encoded data, with null", function () {
@@ -115,7 +115,7 @@ describe("formurlencoded.encode", function () {
   it("should return encoded data, without null", function () {
     expect(
       formurlencoded({propArr1 : [null, null, 1]}, {ignorenull : true})
-    ).toBe( 'propArr1%5B%5D=1' );
+    ).toBe( 'propArr1%5B2%5D=1' );
   });
 
   it("should return the correct test result", function () {
