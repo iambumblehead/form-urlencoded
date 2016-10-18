@@ -1,7 +1,7 @@
 {
   "name": "form-urlencoded",
   "main": "form-urlencoded",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license" : "MIT",
@@ -9,6 +9,9 @@
   "contributors": [{
     "name": "James",
     "email": "james@blashill.com"
+  },{
+    "name": "Jumper423",
+    "email": "jump.e.r@yandex.ru"    
   }],
   "repository": {
     "type": "git",
