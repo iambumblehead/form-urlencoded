@@ -46,7 +46,11 @@ module.exports = function (data, opts) {
 
     function arrnest(name, arr) {
         return arr.length ? filterjoin(arr.map(function (elem, index) {
-            return nest(name + '[' + index + ']', elem);
+            if (opts.useIndex) {
+                return nest(name + '[' + index + ']', elem);
+            } else {
+                return nest(name + '[]', elem);
+            }
         })) : encode(name + '[]');
     }
 
