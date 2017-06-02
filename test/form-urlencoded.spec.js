@@ -155,6 +155,44 @@ describe("formurlencoded.encode", function () {
     ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' );
   });
 
+  it("should return encoded array inside an object with index", function() {
+    expect(
+      formurlencoded({
+        parent: {
+          foo: 'bar',
+          emptyArr: ['first', 'second']
+        }
+      })
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B0%5D=first&parent%5BemptyArr%5D%5B1%5D=second' );
+  });
+
+  it("should return encoded array inside an object without index", function() {
+    expect(
+      formurlencoded({
+        parent: {
+          foo: 'bar',
+          emptyArr: ['first', 'second']
+        }
+      }, { skipIndex: true })
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D=first&parent%5BemptyArr%5D%5B%5D=second' );
+  });
+
+  it("should return array with index", function() {
+    expect(
+      formurlencoded({
+        key: ['val1']
+      })
+    ).toBe( 'key%5B0%5D=val1' )
+  });
+
+  it("should return array without index", function() {
+    expect(
+      formurlencoded({
+        key: ['val1']
+      }, { skipIndex: true })
+    ).toBe( 'key%5B%5D=val1' )
+  });
+
   it("should return encoded urls with unicode characters", function() {
     expect(
       formurlencoded({
