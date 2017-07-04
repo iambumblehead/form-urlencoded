@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2017.07.04-14:35:29 (last modified)
+// Timestamp: 2017.07.04-15:54:15 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -50,7 +50,7 @@ module.exports = (data, opts = {}) => {
             if (value === f) {
                 f = ignorenull ? f : encode(name) + '=' + f;
             } else if (/string|number|boolean/.test(type)) {
-                f = encode(name) + '=' + encode(value);
+                f = encode(name + '=' + value);
             } else if (Array.isArray(value)) {
                 f = arrnest(name, value);
             } else if (type === 'object') {
