@@ -4,8 +4,7 @@ form-urlencoded
 
 [![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded) [![Build Status](https://travis-ci.org/iambumblehead/form-urlencoded.svg?branch=master)](https://travis-ci.org/iambumblehead/form-urlencoded)
 
-Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server.
-
+Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server. _use form-urlencoded@1.2.1 for pre-ES2016 sources_
 
 ```javascript
 var formurlencoded = require('form-urlencoded');
@@ -28,8 +27,6 @@ console.log(formurlencoded(obj, {
 // arr%5B%5D=3&arr%5B%5D%5Bprop%5D=false&arr%5B%5D=1&arr%5B
 // %5D=6&num=0&obj%5Bprop2%5D%5B%5D=elem&str=val
 ```
-
-_use form-urlencoded@1.2.1 for pre-ES2016 sources_
 
 [0]: http://www.bumblehead.com                            "bumblehead"
 [1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"

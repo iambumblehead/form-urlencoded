@@ -4,15 +4,18 @@
   "version": "2.0.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
-  "license" : "MIT",
+  "license": "MIT",
   "readmeFilename": "README.md",
-  "contributors": [{
-    "name": "James",
-    "email": "james@blashill.com"
-  },{
-    "name": "Jumper423",
-    "email": "jump.e.r@yandex.ru"
-  }],
+  "contributors": [
+    {
+      "name": "James",
+      "email": "james@blashill.com"
+    },
+    {
+      "name": "Jumper423",
+      "email": "jump.e.r@yandex.ru"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/iambumblehead/form-urlencoded.git"
@@ -30,11 +33,11 @@
     "form",
     "json encode"
   ],
-  "devDependencies" : {
+  "devDependencies": {
     "jasmine": "2.5.3",
     "jasmine-spec-reporter": "3.2.0"
   },
-  "scripts" : {
+  "scripts": {
     "test": "node node_modules/jasmine/bin/jasmine.js --verbose"
   }
 }
