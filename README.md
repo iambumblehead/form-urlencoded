@@ -29,6 +29,8 @@ console.log(formurlencoded(obj, {
 // %5D=6&num=0&obj%5Bprop2%5D%5B%5D=elem&str=val
 ```
 
+_use form-urlencoded@1.2.1 for pre-ES2016 sources_
+
 [0]: http://www.bumblehead.com                            "bumblehead"
 [1]: http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.1  "w3c"
 [2]: http://www.w3.org/TR/html5/forms.html#url-encoded-form-data "w3c"
@@ -39,11 +41,11 @@ console.log(formurlencoded(obj, {
 [7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_120x120.png
 
 
-![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png)[![es5 classic][7]][7] 
+![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png)
 
 (The MIT License)
 
-Copyright (c) 2012-2016 [Bumblehead][0] <chris@bumblehead.com>
+Copyright (c) [Bumblehead][0] <chris@bumblehead.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

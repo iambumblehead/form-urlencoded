@@ -1,5 +1,5 @@
 // Filename: form-urlencoded.spec.js
-// Timestamp: 2016.03.07-12:30:02 (last modified)
+// Timestamp: 2017.07.04-14:46:35 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
 var formurlencoded = require('../');
@@ -7,28 +7,26 @@ var formurlencoded = require('../');
 // tests assume behaviour not given in ecmascript specification,
 // object properties accessed in 'order'
 
-describe("formurlencoded.encode", function () {
+describe("formurlencoded.encode", () => {
 
-  it("should return encoded data", function () {
+  it("should return encoded data", () => 
     expect(
       formurlencoded({
         propStr1 : 'str1',
         propStr2 : 'str2'
       }), { sorted : true }
-    ).toBe( 'propStr1=str1&propStr2=str2' );
-  });
+    ).toBe( 'propStr1=str1&propStr2=str2' ));
 
-  it("should return encoded data, with array properties", function () {
+  it("should return encoded data, with array properties", () =>
     expect(
       formurlencoded({
         propStr1 : 'str1',
         propStr2 : 'str2',
         propArr1 : ['arrStr1', 'arrStr2']
       })
-    ).toBe( 'propStr1=str1&propStr2=str2&propArr1%5B0%5D=arrStr1&propArr1%5B1%5D=arrStr2' );
-  });
+    ).toBe( 'propStr1=str1&propStr2=str2&propArr1%5B0%5D=arrStr1&propArr1%5B1%5D=arrStr2' ));
 
-  it("should return encoded data, with object properties", function () {
+  it("should return encoded data, with object properties", () =>
     expect(
       formurlencoded({
         propStr1 : 'str1',
@@ -38,10 +36,9 @@ describe("formurlencoded.encode", function () {
           objPropStr2 : 'objStr2'
         }
       })
-    ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2' );
-  });
+    ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2' ));
 
-  it("should return encoded data, with mixed object and array properties", function () {
+  it("should return encoded data, with mixed object and array properties", () =>
     expect( formurlencoded({
       propStr1 : 'str1',
       propStr2 : 'str2',
@@ -57,37 +54,32 @@ describe("formurlencoded.encode", function () {
           propArr1Obj2Str1 : 'obj2Str1'
         }]
       }
-    }) ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2&propObj1%5BobjPropObj1%5D%5BpropObj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B0%5D%5BpropArr1Obj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B1%5D%5BpropArr1Obj2Str1%5D=obj2Str1' );
-  });
+    }) ).toBe( 'propStr1=str1&propStr2=str2&propObj1%5BobjPropStr1%5D=objStr1&propObj1%5BobjPropStr2%5D=objStr2&propObj1%5BobjPropObj1%5D%5BpropObj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B0%5D%5BpropArr1Obj1Str1%5D=obj1Str1&propObj1%5BobjPropArr1%5D%5B1%5D%5BpropArr1Obj2Str1%5D=obj2Str1' ));
 
-  it("should return encoded data, with numbers", function () {
+  it("should return encoded data, with numbers", () =>
     expect(
       formurlencoded({ propArr1 : [1, 2, 3] })
-    ).toBe( 'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3' );
-  });
+    ).toBe( 'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3' ));
 
-  it("should return encoded data, with booleans", function () {
+  it("should return encoded data, with booleans", () =>
     expect(
       formurlencoded({propArr1 : [true, false, true]})
-    ).toBe( 'propArr1%5B0%5D=true&propArr1%5B1%5D=false&propArr1%5B2%5D=true' );
-  });
+    ).toBe( 'propArr1%5B0%5D=true&propArr1%5B1%5D=false&propArr1%5B2%5D=true' ));
 
-  it("should return encoded data, with null", function () {
+  it("should return encoded data, with null", () =>
     expect(
       formurlencoded({
         propNull1 : null,
         propStr1 : 'str1'
       })
-    ).toBe( 'propNull1=null&propStr1=str1' );
-  });
+    ).toBe( 'propNull1=null&propStr1=str1' ));
 
-  it("should return encoded data, with properties sorted", function () {
+  it("should return encoded data, with properties sorted", () =>
     expect(
       formurlencoded({c : 4, b : { z : 3, y : 2 }, a : 1}, { sorted: true })
-    ).toBe( 'a=1&b%5By%5D=2&b%5Bz%5D=3&c=4' );
-  });
+    ).toBe( 'a=1&b%5By%5D=2&b%5Bz%5D=3&c=4' ));
 
-  it("should not break when null argument is given", function () {
+  it("should not break when null argument is given", () => {
     expect(
       formurlencoded(null, { sorted: true })
     ).toBe( null );
@@ -97,7 +89,7 @@ describe("formurlencoded.encode", function () {
     ).toBe( undefined );
   });
 
-  it("should properly encode all ascii characters", function () {
+  it("should properly encode all ascii characters", () => {
     var testCharEncodingString = "";
     for (var i = 0; i < 256; i++) {
       testCharEncodingString += String.fromCharCode(i);
@@ -112,13 +104,12 @@ describe("formurlencoded.encode", function () {
     );
   });
 
-  it("should return encoded data, without null", function () {
+  it("should return encoded data, without null", () => 
     expect(
       formurlencoded({propArr1 : [null, null, 1]}, {ignorenull : true})
-    ).toBe( 'propArr1%5B2%5D=1' );
-  });
+    ).toBe( 'propArr1%5B2%5D=1' ));
 
-  it("should return the correct test result", function () {
+  it("should return the correct test result", () => {
     var formurlencoded = require('../form-urlencoded');
     var obj = {
       str : 'val',
@@ -136,15 +127,14 @@ describe("formurlencoded.encode", function () {
     expect(true).toBe(true);
   });
 
-  it("should return encoded empty array", function () {
+  it("should return encoded empty array", () =>
     expect(
       formurlencoded({
         emptyArr : []
       })
-    ).toBe( 'emptyArr%5B%5D' );
-  });
+    ).toBe( 'emptyArr%5B%5D' ));
 
-  it("should return encoded empty array inside an object", function() {
+  it("should return encoded empty array inside an object", () => 
     expect(
       formurlencoded({
         parent: {
@@ -152,10 +142,9 @@ describe("formurlencoded.encode", function () {
           emptyArr: []
         }
       })
-    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' );
-  });
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D' ));
 
-  it("should return encoded array inside an object with index", function() {
+  it("should return encoded array inside an object with index", () =>
     expect(
       formurlencoded({
         parent: {
@@ -163,10 +152,9 @@ describe("formurlencoded.encode", function () {
           emptyArr: ['first', 'second']
         }
       })
-    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B0%5D=first&parent%5BemptyArr%5D%5B1%5D=second' );
-  });
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B0%5D=first&parent%5BemptyArr%5D%5B1%5D=second' ));
 
-  it("should return encoded array inside an object without index", function() {
+  it("should return encoded array inside an object without index", () =>
     expect(
       formurlencoded({
         parent: {
@@ -174,33 +162,29 @@ describe("formurlencoded.encode", function () {
           emptyArr: ['first', 'second']
         }
       }, { skipIndex: true })
-    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D=first&parent%5BemptyArr%5D%5B%5D=second' );
-  });
+    ).toBe( 'parent%5Bfoo%5D=bar&parent%5BemptyArr%5D%5B%5D=first&parent%5BemptyArr%5D%5B%5D=second' ));
 
-  it("should return array with index", function() {
+  it("should return array with index", () =>
     expect(
       formurlencoded({
         key: ['val1']
       })
-    ).toBe( 'key%5B0%5D=val1' )
-  });
+    ).toBe( 'key%5B0%5D=val1' ));
 
-  it("should return array without index", function() {
+  it("should return array without index", () =>
     expect(
       formurlencoded({
         key: ['val1']
       }, { skipIndex: true })
-    ).toBe( 'key%5B%5D=val1' )
-  });
+    ).toBe( 'key%5B%5D=val1' ));
 
-  it("should return encoded urls with unicode characters", function() {
+  it("should return encoded urls with unicode characters", () =>
     expect(
       formurlencoded({
         parent: {
           foo: '😀',
         }
       })
-    ).toBe( 'parent%5Bfoo%5D=%F0%9F%98%80' );
-  });
+    ).toBe( 'parent%5Bfoo%5D=%F0%9F%98%80' ));
 
 });
