@@ -1,5 +1,5 @@
 // Filename: formurlencoded.js
-// Timestamp: 2017.07.04-15:58:04 (last modified)
+// Timestamp: 2017.07.04-18:58:44 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 //
 // http://www.w3.org/TR/html5/forms.html#url-encoded-form-data
@@ -34,14 +34,11 @@ module.exports = (data, opts = {}) => {
             filterjoin(keys(obj).map(key =>
                 nest(name + '[' + key + ']', obj[key]))),
 
-        arrnest = (name, arr) =>
-            arr.length
-                ? filterjoin(arr.map((elem, index) =>
-                    skipIndex
-                        ? nest(name + '[]', elem)
-                        : nest(name + '[' + index + ']', elem)
-                ))
-                : encode(name + '[]'),
+        arrnest = (name, arr) => arr.length
+            ? filterjoin(arr.map((elem, index) => skipIndex
+                ? nest(name + '[]', elem)
+                : nest(name + '[' + index + ']', elem)))
+            : encode(name + '[]'),
 
         nest = (name, value) => {
             let type = typeof value,
