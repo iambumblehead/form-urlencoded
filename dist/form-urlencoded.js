@@ -9,11 +9,7 @@ module.exports = (data, opts = {}) => {
     const sorted = Boolean(opts.sorted),
           skipIndex = Boolean(opts.skipIndex),
           ignorenull = Boolean(opts.ignorenull),
-
-    // ES5 compatible version of `/[^ !'()~\*]/gu`, https://mothereff.in/regexpu
-    //encodechar = /(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g,
-
-    encode = value => String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~\*]/g, ch => '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase()),
+          encode = value => String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~\*]/g, ch => '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase()),
           keys = (obj, keyarr = Object.keys(obj)) => sorted ? keyarr.sort() : keyarr,
           filterjoin = arr => arr.filter(e => e).join('&'),
           objnest = (name, obj) => filterjoin(keys(obj).map(key => nest(name + '[' + key + ']', obj[key]))),
