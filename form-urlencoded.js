@@ -10,10 +10,8 @@ module.exports = (data, opts = {}) => {
         skipIndex = Boolean(opts.skipIndex),
         ignorenull = Boolean(opts.ignorenull),
 
-        // ES5 compatible version of `/[^ !'()~\*]/gu`, https://mothereff.in/regexpu
-        encodechar = new RegExp(['(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|',
-            '[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|',
-            '(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])'].join(''), 'g'),
+          // ES5 compatible version of `/[^ !'()~\*]/gu`, https://mothereff.in/regexpu
+        encodechar = /(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g,
 
         encode = value => String(value)
             .replace(encodechar, encodeURIComponent)
