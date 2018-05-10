@@ -6,7 +6,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 // Timestamp: 2017.07.04-19:19:11 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 
-module.exports = function (data) {
+module.exports.default = function (data) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     var sorted = Boolean(opts.sorted),

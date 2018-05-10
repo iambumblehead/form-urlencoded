@@ -7,8 +7,8 @@ form-urlencoded
 Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server.
 
 ```javascript
-var formurlencoded = require('form-urlencoded');
-var obj = {
+const formurlencoded = require('form-urlencoded').default;
+const obj = {
   str : 'val',
   num : 0,
   arr : [3, {prop : false}, 1, null, 6],

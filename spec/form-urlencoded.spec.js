@@ -2,7 +2,7 @@
 // Timestamp: 2017.07.05-02:33:29 (last modified)
 // Author(s): bumblehead <chris@bumblehead.com>
 
-var formurlencoded = require('../');
+var formurlencoded = require('../').default;
 
 // tests assume behaviour not given in ecmascript specification,
 // object properties accessed in 'order'
