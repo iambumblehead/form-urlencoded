@@ -2,7 +2,7 @@
 // Timestamp: 2017.07.04-19:19:11 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 
-module.exports.default = (data, opts = {}) => {
+export default (data, opts = {}) => {
     const sorted = Boolean(opts.sorted),
         skipIndex = Boolean(opts.skipIndex),
         ignorenull = Boolean(opts.ignorenull),
