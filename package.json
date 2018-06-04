@@ -2,7 +2,7 @@
   "name": "form-urlencoded",
   "main": "dist/form-urlencoded",
   "module": "src/form-urlencoded",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",

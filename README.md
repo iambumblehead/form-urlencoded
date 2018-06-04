@@ -8,6 +8,12 @@ Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTM
 
 ```javascript
 import formurlencoded from 'form-urlencoded';
+// NOTE: form-urlencoded is recently changed to use ES6 export.
+//       CommonJS environments should find form-urlencoded's 'default' property
+//
+// ex,
+//
+//   const formurlencoded = require('form-urlencoded').default;
 
 const obj = {
   str : 'val',
