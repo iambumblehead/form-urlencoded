@@ -1,8 +1,8 @@
 {
   "name": "form-urlencoded",
   "main": "dist/form-urlencoded",
-  "module": "src/form-urlencoded",
-  "version": "3.0.0",
+  "module": "form-urlencoded",
+  "version": "3.0.1",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -43,11 +43,11 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-unicode-regex": "6.24.1",
     "babel-preset-env": "^1.7.0",
-    "jasmine": "2.5.3",
+    "jasmine": "3.4.0",
     "jasmine-spec-reporter": "3.2.0"
   },
   "scripts": {
-    "test": "jasmine --verbose",
+    "test": "jasmine",
     "start": "./node_modules/babel-cli/bin/babel.js --plugins transform-es2015-unicode-regex --presets env -d dist/ form-urlencoded.js",
     "prepare": "npm start && npm test"
   }
