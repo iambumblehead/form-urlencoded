@@ -1,7 +1,7 @@
 {
   "name": "form-urlencoded",
   "main": "dist/form-urlencoded",
-  "browser": "dist/form-urlencoded"
+  "browser": "dist/form-urlencoded",
   "module": "form-urlencoded",
   "version": "4.0.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
