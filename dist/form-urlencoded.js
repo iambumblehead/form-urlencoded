@@ -16,6 +16,7 @@ exports.default = function (data) {
     var sorted = Boolean(opts.sorted),
         skipIndex = Boolean(opts.skipIndex),
         ignorenull = Boolean(opts.ignorenull),
+        skipBracket = Boolean(opts.skipBracket),
         encode = function encode(value) {
         return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~\*]/g, function (ch) {
             return '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase();
@@ -36,9 +37,10 @@ exports.default = function (data) {
         }));
     },
         arrnest = function arrnest(name, arr) {
+        var bracketAffix = skipBracket ? '' : '[]';
         return arr.length ? filterjoin(arr.map(function (elem, index) {
-            return skipIndex ? nest(name + '[]', elem) : nest(name + '[' + index + ']', elem);
-        })) : encode(name + '[]');
+            return skipIndex ? nest(name + bracketAffix, elem) : nest(name + '[' + index + ']', elem);
+        })) : encode(name + bracketAffix);
     },
         nest = function nest(name, value) {
         var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : typeof value === 'undefined' ? 'undefined' : _typeof(value);
