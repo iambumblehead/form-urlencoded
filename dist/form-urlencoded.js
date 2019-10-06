@@ -37,10 +37,10 @@ exports.default = function (data) {
         }));
     },
         arrnest = function arrnest(name, arr) {
-        var bracketAffix = skipBracket ? '' : '[]';
+        var brackets = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : skipBracket ? '' : '[]';
         return arr.length ? filterjoin(arr.map(function (elem, index) {
-            return skipIndex ? nest(name + bracketAffix, elem) : nest(name + '[' + index + ']', elem);
-        })) : encode(name + bracketAffix);
+            return skipIndex ? nest(name + brackets, elem) : nest(name + '[' + index + ']', elem);
+        })) : encode(name + brackets);
     },
         nest = function nest(name, value) {
         var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : typeof value === 'undefined' ? 'undefined' : _typeof(value);

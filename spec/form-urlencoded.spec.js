@@ -190,6 +190,13 @@ ${formurlencoded(obj, {
       }, { skipIndex: true })
     ).toBe('key%5B%5D=val1'));
 
+  it("should return array name without brackets (when skipBracket is true)", () =>
+    expect(
+      formurlencoded({
+        key: ['val1']
+      }, { skipIndex: true, skipBracket: true })
+    ).toBe('key=val1'));  
+
   it("should return encoded urls with unicode characters", () =>
     expect(
       formurlencoded({
