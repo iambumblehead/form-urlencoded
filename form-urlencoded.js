@@ -30,9 +30,7 @@ export default (data, opts = {}) => {
         : encode(name + brackets),
 
     setnest = (name, set, arr=[]) => {
-        set.forEach(elem => {
-          arr.push(nest(name, elem))
-        })
+        set.forEach(elem => arr.push(nest(name, elem)))
         return filterjoin(arr);
     }
 
@@ -44,7 +42,7 @@ export default (data, opts = {}) => {
         else if (Array.isArray(value))
             f = arrnest(name, value);
         else if (value instanceof Set)
-          f = setnest(name, value);
+            f = setnest(name, value);
         else if (type === 'object')
             f = objnest(name, value);
 
