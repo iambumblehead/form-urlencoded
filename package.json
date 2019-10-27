@@ -3,7 +3,7 @@
   "main": "dist/form-urlencoded",
   "browser": "dist/form-urlencoded",
   "module": "form-urlencoded",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -45,11 +45,16 @@
     "babel-plugin-transform-es2015-unicode-regex": "6.24.1",
     "babel-preset-env": "^1.7.0",
     "jasmine": "3.4.0",
-    "jasmine-spec-reporter": "3.2.0"
+    "jasmine-spec-reporter": "3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
     "test": "jasmine",
+    "lint": "eslint form-urlencoded.js",
     "start": "./node_modules/babel-cli/bin/babel.js --plugins transform-es2015-unicode-regex --presets env -d dist/ form-urlencoded.js",
-    "prepare": "npm start && npm test"
+    "prepare": "npm start && npm test && npm lint"
   }
 }

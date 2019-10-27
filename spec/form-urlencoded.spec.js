@@ -8,7 +8,6 @@ var formurlencoded = require('../').default;
 // object properties accessed in 'order'
 
 describe("formurlencoded.encode", () => {
-
   var obj = {
     str: 'val',
     num: 0,
@@ -138,6 +137,13 @@ ${formurlencoded(obj, {
     expect(
       formurlencoded({ propArr1: [null, null, 1] }, { ignorenull: true })
     ).toBe('propArr1%5B2%5D=1'));
+
+  it("should return encoded set", () =>
+    expect(
+      formurlencoded({
+        set: new Set([1, 'two'])
+      })
+    ).toBe('set=1&set=two'));
 
   it("should return encoded empty array", () =>
     expect(

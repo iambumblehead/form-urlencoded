@@ -1,53 +1,50 @@
 // Filename: formurlencoded.js
 // Timestamp: 2017.07.04-19:19:11 (last modified)
-// Author(s): Bumblehead (www.bumblehead.com), JBlashill (james@blashill.com), Jumper423 (jump.e.r@yandex.ru)
 
 export default (data, opts = {}) => {
-    const sorted = Boolean(opts.sorted),
-    skipIndex = Boolean(opts.skipIndex),
-    ignorenull = Boolean(opts.ignorenull),
-    skipBracket = Boolean(opts.skipBracket),
+  const sorted = Boolean(opts.sorted);
+  const skipIndex = Boolean(opts.skipIndex);
+  const ignorenull = Boolean(opts.ignorenull);
+  const skipBracket = Boolean(opts.skipBracket);
 
-    encode = value => String(value)
-        .replace(/[^ !'()~\*]/gu, encodeURIComponent)
-        .replace(/ /g, '+')
-        .replace(/[!'()~\*]/g, ch =>
-            '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase()),
+  const encode = value => String(value)
+    .replace(/[^ !'()~*]/gu, encodeURIComponent)
+    .replace(/ /g, '+')
+    .replace(/[!'()~*]/g, ch =>
+      `%${ch.charCodeAt().toString(16).slice(-2).toUpperCase()}`);
 
-    keys = (obj, keyarr = Object.keys(obj)) =>
-        sorted ? keyarr.sort() : keyarr,
+  const keys = (obj, keyarr = Object.keys(obj)) =>
+    sorted ? keyarr.sort() : keyarr;
 
-    filterjoin = arr => arr.filter(e => e).join('&'),
+  const filterjoin = arr => arr.filter(e => e).join('&');
 
-    objnest = (name, obj) =>
-        filterjoin(keys(obj).map(key =>
-            nest(name + '[' + key + ']', obj[key]))),
+  const objnest = (name, obj) =>
+    filterjoin(keys(obj).map(key =>
+      nest(`${name}[${key}]`, obj[key])));
 
-    arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
-        ? filterjoin(arr.map((elem, index) => skipIndex
-            ? nest(name + brackets, elem)
-            : nest(name + '[' + index + ']', elem)))
-        : encode(name + brackets),
+  const arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
+    ? filterjoin(arr.map((elem, index) => skipIndex
+      ? nest(name + brackets, elem)
+      : nest(name + '[' + index + ']', elem)))
+    : encode(name + brackets);
 
-    setnest = (name, set, arr=[]) => {
-        set.forEach(elem => arr.push(nest(name, elem)))
-        return filterjoin(arr);
-    }
+  const setnest = (name, set) => filterjoin(
+    Array.from(set).map(elem => nest(name, elem)));
 
-    nest = (name, value, type = typeof value, f = null) => {
-        if (value === f)
-            f = ignorenull ? f : encode(name) + '=' + f;
-        else if (/string|number|boolean/.test(type))
-            f = encode(name) + '=' + encode(value);
-        else if (Array.isArray(value))
-            f = arrnest(name, value);
-        else if (value instanceof Set)
-            f = setnest(name, value);
-        else if (type === 'object')
-            f = objnest(name, value);
+  const nest = (name, value, type = typeof value, f = null) => {
+    if (value === f)
+      f = ignorenull ? f : encode(name) + '=' + f;
+    else if (/string|number|boolean/.test(type))
+      f = encode(name) + '=' + encode(value);
+    else if (Array.isArray(value))
+      f = arrnest(name, value);
+    else if (value instanceof Set)
+      f = setnest(name, value);
+    else if (type === 'object')
+      f = objnest(name, value);
 
-        return f;
-    };
+    return f;
+  };
 
-return data && filterjoin(keys(data).map(key => nest(key, data[key])));
+  return data && filterjoin(keys(data).map(key => nest(key, data[key])));
 };
