@@ -55,6 +55,6 @@
     "test": "jasmine",
     "lint": "eslint form-urlencoded.js",
     "start": "./node_modules/babel-cli/bin/babel.js --plugins transform-es2015-unicode-regex --presets env -d dist/ form-urlencoded.js",
-    "prepare": "npm start && npm test && npm lint"
+    "prepare": "npm start && npm run lint && npm test"
   }
 }
