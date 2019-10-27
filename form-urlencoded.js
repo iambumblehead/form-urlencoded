@@ -4,43 +4,50 @@
 
 export default (data, opts = {}) => {
     const sorted = Boolean(opts.sorted),
-        skipIndex = Boolean(opts.skipIndex),
-        ignorenull = Boolean(opts.ignorenull),
-        skipBracket = Boolean(opts.skipBracket),
+    skipIndex = Boolean(opts.skipIndex),
+    ignorenull = Boolean(opts.ignorenull),
+    skipBracket = Boolean(opts.skipBracket),
 
-        encode = value => String(value)
-            .replace(/[^ !'()~\*]/gu, encodeURIComponent)
-            .replace(/ /g, '+')
-            .replace(/[!'()~\*]/g, ch =>
-                '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase()),
+    encode = value => String(value)
+        .replace(/[^ !'()~\*]/gu, encodeURIComponent)
+        .replace(/ /g, '+')
+        .replace(/[!'()~\*]/g, ch =>
+            '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase()),
 
-        keys = (obj, keyarr = Object.keys(obj)) =>
-            sorted ? keyarr.sort() : keyarr,
+    keys = (obj, keyarr = Object.keys(obj)) =>
+        sorted ? keyarr.sort() : keyarr,
 
-        filterjoin = arr => arr.filter(e => e).join('&'),
+    filterjoin = arr => arr.filter(e => e).join('&'),
 
-        objnest = (name, obj) =>
-            filterjoin(keys(obj).map(key =>
-                nest(name + '[' + key + ']', obj[key]))),
+    objnest = (name, obj) =>
+        filterjoin(keys(obj).map(key =>
+            nest(name + '[' + key + ']', obj[key]))),
 
-        arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
-            ? filterjoin(arr.map((elem, index) => skipIndex
-                ? nest(name + brackets, elem)
-                : nest(name + '[' + index + ']', elem)))
-            : encode(name + brackets),
+    arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
+        ? filterjoin(arr.map((elem, index) => skipIndex
+            ? nest(name + brackets, elem)
+            : nest(name + '[' + index + ']', elem)))
+        : encode(name + brackets),
 
-        nest = (name, value, type = typeof value, f = null) => {
-            if (value === f)
-                f = ignorenull ? f : encode(name) + '=' + f;
-            else if (/string|number|boolean/.test(type))
-                f = encode(name) + '=' + encode(value);
-            else if (Array.isArray(value))
-                f = arrnest(name, value);
-            else if (type === 'object')
-                f = objnest(name, value);
+    setnest = (name, set, arr=[]) => {
+        set.forEach(elem => arr.push(nest(name, elem)))
+        return filterjoin(arr);
+    }
 
-            return f;
-        };
+    nest = (name, value, type = typeof value, f = null) => {
+        if (value === f)
+            f = ignorenull ? f : encode(name) + '=' + f;
+        else if (/string|number|boolean/.test(type))
+            f = encode(name) + '=' + encode(value);
+        else if (Array.isArray(value))
+            f = arrnest(name, value);
+        else if (value instanceof Set)
+            f = setnest(name, value);
+        else if (type === 'object')
+            f = objnest(name, value);
 
-    return data && filterjoin(keys(data).map(key => nest(key, data[key])));
+        return f;
+    };
+
+return data && filterjoin(keys(data).map(key => nest(key, data[key])));
 };
