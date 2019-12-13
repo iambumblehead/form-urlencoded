@@ -21,7 +21,7 @@ export default (data, opts = {}) => {
 
   const objnest = (name, obj) =>
     filterjoin(keys(obj).map(key => useDot ?
-      nest(`${name}[${key}]`, obj[key]) | nest(`${name}.${key}`, obj[key])));
+      nest(`${name}.${key}`, obj[key]) : nest(`${name}[${key}]`, obj[key])));
 
   const arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
     ? filterjoin(arr.map((elem, index) => skipIndex
