@@ -6,6 +6,7 @@ export default (data, opts = {}) => {
   const skipIndex = Boolean(opts.skipIndex);
   const ignorenull = Boolean(opts.ignorenull);
   const skipBracket = Boolean(opts.skipBracket);
+  const useDot = Boolean(opts.useDot);
 
   const encode = value => String(value)
     .replace(/[^ !'()~*]/gu, encodeURIComponent)
@@ -19,8 +20,8 @@ export default (data, opts = {}) => {
   const filterjoin = arr => arr.filter(e => e).join('&');
 
   const objnest = (name, obj) =>
-    filterjoin(keys(obj).map(key =>
-      nest(`${name}[${key}]`, obj[key])));
+    filterjoin(keys(obj).map(key => useDot ?
+      nest(`${name}.${key}`, obj[key]) : nest(`${name}[${key}]`, obj[key])));
 
   const arrnest = (name, arr, brackets = skipBracket ? '' : '[]') => arr.length
     ? filterjoin(arr.map((elem, index) => skipIndex

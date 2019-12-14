@@ -8,7 +8,7 @@ Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTM
 
 ```javascript
 import formurlencoded from 'form-urlencoded';
-// or: 
+// or:
 // var formurlencoded = require('form-urlencoded').default;
 
 const obj = {
@@ -32,6 +32,15 @@ console.log(formurlencoded(obj, {
 // arr%5B%5D=3&arr%5B%5D%5Bprop%5D=false&arr%5B%5D=1&arr
 // %5B%5D=6&num=0&obj%5Bprop2%5D%5B%5D=elem&str=val
 // &set=1&set=two
+
+console.log(formurlencoded(obj, {
+  ignorenull : true,
+  skipIndex : false,
+  useDot : true
+}));
+// str=val&num=0&arr%5B0%5D=3&arr%5B1%5D.prop=false&arr%5B2%5D=1
+// &arr%5B4%5D=6&obj.prop2%5B0%5D=elem&set=1&set=two
+
 ```
 
 [0]: http://www.bumblehead.com                            "bumblehead"
@@ -55,4 +64,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-   

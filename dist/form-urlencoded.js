@@ -16,6 +16,7 @@ exports.default = function (data) {
   var skipIndex = Boolean(opts.skipIndex);
   var ignorenull = Boolean(opts.ignorenull);
   var skipBracket = Boolean(opts.skipBracket);
+  var useDot = Boolean(opts.useDot);
 
   var encode = function encode(value) {
     return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~*]/g, function (ch) {
@@ -36,7 +37,7 @@ exports.default = function (data) {
 
   var objnest = function objnest(name, obj) {
     return filterjoin(keys(obj).map(function (key) {
-      return nest(name + '[' + key + ']', obj[key]);
+      return useDot ? nest(name + '.' + key, obj[key]) : nest(name + '[' + key + ']', obj[key]);
     }));
   };
 
