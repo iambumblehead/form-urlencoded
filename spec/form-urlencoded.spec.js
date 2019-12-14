@@ -201,7 +201,24 @@ ${formurlencoded(obj, {
       formurlencoded({
         key: ['val1']
       }, { skipIndex: true, skipBracket: true })
-    ).toBe('key=val1'));  
+    ).toBe('key=val1'));
+
+  it("should return nested object with '.' as seperator", () =>
+    expect(
+      formurlencoded({
+        key: [
+          {
+            'val1' : 1,
+            'val2' : 2
+          },
+          {
+            'val3' : 3,
+            'val4' : 4
+          }
+        ]
+      }, { useDot: true })
+    ).toBe('key%5B0%5D.val1=1&key%5B0%5D.val2=2&key%5B1%5D.val3=3&key%5B1%5D.val4=4'));  
+
 
   it("should return encoded urls with unicode characters", () =>
     expect(
