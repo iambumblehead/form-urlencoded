@@ -1,6 +1,3 @@
-// Filename: formurlencoded.js
-// Timestamp: 2017.07.04-19:19:11 (last modified)
-
 export default (data, opts = {}) => {
   const sorted = Boolean(opts.sorted);
   const skipIndex = Boolean(opts.skipIndex);
