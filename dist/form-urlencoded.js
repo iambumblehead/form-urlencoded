@@ -6,17 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-// Filename: formurlencoded.js
-// Timestamp: 2017.07.04-19:19:11 (last modified)
-
 exports.default = function (data) {
   var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var sorted = opts.sorted,
+      skipIndex = opts.skipIndex,
+      ignorenull = opts.ignorenull,
+      skipBracket = opts.skipBracket,
+      useDot = opts.useDot;
 
-  var sorted = Boolean(opts.sorted);
-  var skipIndex = Boolean(opts.skipIndex);
-  var ignorenull = Boolean(opts.ignorenull);
-  var skipBracket = Boolean(opts.skipBracket);
-  var useDot = Boolean(opts.useDot);
 
   var encode = function encode(value) {
     return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~*]/g, function (ch) {
