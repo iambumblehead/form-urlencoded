@@ -33,11 +33,12 @@ console.log(formurlencoded(obj, {
 
 console.log(formurlencoded(obj, {
   ignorenull : true,
-  skipIndex : false,
-  useDot : true
+  useDot : true,
+  skipIndex : true,
+  skipBracket : true
 }));
-// str=val&num=0&arr%5B0%5D=3&arr%5B1%5D.prop=false&arr%5B2%5D=1
-// &arr%5B4%5D=6&obj.prop2%5B0%5D=elem
+// str=val&num=0&arr=3&arr.prop=false&arr=1&arr=6&obj.pr
+// op2=elem
 ```
 
 [0]: http://www.bumblehead.com                            "bumblehead"
