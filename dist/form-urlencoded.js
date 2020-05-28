@@ -1,12 +1,13 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-exports.default = function (data) {
+var _default = function _default(data) {
   var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var sorted = opts.sorted,
       skipIndex = opts.skipIndex,
@@ -14,10 +15,9 @@ exports.default = function (data) {
       skipBracket = opts.skipBracket,
       useDot = opts.useDot;
 
-
   var encode = function encode(value) {
     return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~*]/g, function (ch) {
-      return '%' + ch.charCodeAt().toString(16).slice(-2).toUpperCase();
+      return "%".concat(ch.charCodeAt().toString(16).slice(-2).toUpperCase());
     });
   };
 
@@ -34,7 +34,7 @@ exports.default = function (data) {
 
   var objnest = function objnest(name, obj) {
     return filterjoin(keys(obj).map(function (key) {
-      return useDot ? nest(name + '.' + key, obj[key]) : nest(name + '[' + key + ']', obj[key]);
+      return useDot ? nest("".concat(name, ".").concat(key), obj[key]) : nest("".concat(name, "[").concat(key, "]"), obj[key]);
     }));
   };
 
@@ -52,11 +52,9 @@ exports.default = function (data) {
   };
 
   var nest = function nest(name, value) {
-    var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : typeof value === 'undefined' ? 'undefined' : _typeof(value);
+    var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _typeof(value);
     var f = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-
     if (value === f) f = ignorenull ? f : encode(name) + '=' + f;else if (/string|number|boolean/.test(type)) f = encode(name) + '=' + encode(value);else if (Array.isArray(value)) f = arrnest(name, value);else if (value instanceof Set) f = setnest(name, value);else if (type === 'object') f = objnest(name, value);
-
     return f;
   };
 
@@ -64,3 +62,5 @@ exports.default = function (data) {
     return nest(key, data[key]);
   }));
 };
+
+exports["default"] = _default;
