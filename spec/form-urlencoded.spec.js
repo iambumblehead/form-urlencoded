@@ -25,8 +25,9 @@ ${formurlencoded(obj).match(/(.{1,53})/g).map(n => '// ' + n).join('\n')}
 
 console.log(formurlencoded(obj, {
   ignorenull : true,
-  skipIndex : true,
-  sorted : true
+  useDot : true,
+  skipIndex: true,
+  skipBracket : true
 }));
 ${formurlencoded(obj, {
     ignorenull : true,
