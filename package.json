@@ -3,7 +3,7 @@
   "main": "form-urlencoded.dist",
   "browser": "form-urlencoded.dist",
   "module": "form-urlencoded",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
