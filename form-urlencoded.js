@@ -1,9 +1,9 @@
 export default (data, opts = {}) => {
-  const { sorted, skipIndex, ignorenull, skipBracket, useDot } = opts;
+  const { sorted, skipIndex, ignorenull, skipBracket, useDot, whitespace='+' } = opts;
 
   const encode = value => String(value)
     .replace(/[^ !'()~*]/gu, encodeURIComponent)
-    .replace(/ /g, '+')
+    .replace(/ /g, whitespace)
     .replace(/[!'()~*]/g, ch =>
       `%${ch.charCodeAt().toString(16).slice(-2).toUpperCase()}`);
 

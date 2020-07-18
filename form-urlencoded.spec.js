@@ -218,3 +218,12 @@ test('return encoded urls with unicode characters', t => t.is(
   }),
   'parent%5Bfoo%5D=%F0%9F%98%80'
 ));
+
+test('return encoded urls with custom whitespace character', t => t.is(
+  formurlencoded({
+    parent : {
+      foo : 'custom space'
+    }
+  }, { whitespace: '%20' }),
+  'parent%5Bfoo%5D=custom%20space'
+));

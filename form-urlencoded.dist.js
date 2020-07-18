@@ -13,10 +13,12 @@ var _default = function _default(data) {
       skipIndex = opts.skipIndex,
       ignorenull = opts.ignorenull,
       skipBracket = opts.skipBracket,
-      useDot = opts.useDot;
+      useDot = opts.useDot,
+      _opts$whitespace = opts.whitespace,
+      whitespace = _opts$whitespace === void 0 ? '+' : _opts$whitespace;
 
   var encode = function encode(value) {
-    return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, '+').replace(/[!'()~*]/g, function (ch) {
+    return String(value).replace(/(?:[\0-\x1F"-&\+-\}\x7F-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/g, encodeURIComponent).replace(/ /g, whitespace).replace(/[!'()~*]/g, function (ch) {
       return "%".concat(ch.charCodeAt().toString(16).slice(-2).toUpperCase());
     });
   };
