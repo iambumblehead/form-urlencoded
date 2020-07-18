@@ -1,9 +1,9 @@
 {
   "name": "form-urlencoded",
-  "main": "dist/form-urlencoded",
-  "browser": "dist/form-urlencoded",
+  "main": "form-urlencoded.dist",
+  "browser": "form-urlencoded.dist",
   "module": "form-urlencoded",
-  "version": "4.1.4",
+  "version": "4.2.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -49,7 +49,7 @@
   "scripts": {
     "test": "ava",
     "lint": "eslint form-urlencoded.js",
-    "start": "./node_modules/.bin/babel form-urlencoded.js --out-dir dist/ --presets=@babel/env --plugins=@babel/plugin-transform-unicode-regex",
+    "start": "./node_modules/.bin/babel form-urlencoded.js --out-file form-urlencoded.dist.js --presets=@babel/env --plugins=@babel/plugin-transform-unicode-regex",
     "prepare": "npm start && npm run lint && npm test"
   }
 }
