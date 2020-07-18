@@ -1,5 +1,5 @@
 const test = require('ava');
-const formurlencoded = require('..').default;
+const formurlencoded = require('.').default;
 
 // tests assume behaviour not given in ecmascript specification,
 // object properties accessed in 'order'
