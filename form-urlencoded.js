@@ -1,5 +1,7 @@
 export default (data, opts = {}) => {
-  const { sorted, skipIndex, ignorenull, skipBracket, useDot, whitespace='+' } = opts;
+  const {
+    sorted, skipIndex, ignorenull, skipBracket, useDot, whitespace = '+'
+  } = opts;
 
   const encode = value => String(value)
     .replace(/[^ !'()~*]/gu, encodeURIComponent)
