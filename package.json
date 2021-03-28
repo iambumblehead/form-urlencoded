@@ -42,15 +42,14 @@
     "json encode"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.1",
-    "@babel/plugin-transform-unicode-regex": "^7.10.1",
-    "@babel/preset-env": "^7.10.1",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "ava": "^3.8.2"
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.13",
+    "@babel/eslint-parser": "7.13.10",
+    "@babel/plugin-transform-unicode-regex": "^7.12.13",
+    "@babel/preset-env": "^7.13.12",
+    "ava": "^3.15.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
     "test": "ava form-urlencoded.spec.js",
