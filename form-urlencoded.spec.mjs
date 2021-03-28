@@ -1,10 +1,7 @@
-// babel and "@babel/plugin-transform-unicode-regex" stopped working
-// uupdate the file manually
-require('child_process').execSync(
-  'sed -i "s/g, encode/gu, encode/" form-urlencoded.dist.js');
+import test from 'ava';
+import formurlencodeddist from './form-urlencoded.dist.js';
 
-const test = require('ava');
-const formurlencoded = require('.').default;
+const formurlencoded = formurlencodeddist.default;
 
 // tests assume behaviour not given in ecmascript specification,
 // object properties accessed in 'order'

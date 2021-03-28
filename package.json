@@ -3,7 +3,7 @@
   "main": "form-urlencoded.dist",
   "browser": "form-urlencoded.dist",
   "module": "form-urlencoded.js",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -46,14 +46,15 @@
     "@babel/core": "^7.12.2",
     "@babel/eslint-parser": "7.13.10",
     "@babel/preset-env": "^7.13.12",
-    "ava": "^3.15.0",
+    "ava": "^4.0.0-alpha.1",
     "eslint": "^7.23.0",
     "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
-    "test": "ava form-urlencoded.spec.js",
+    "test": "ava form-urlencoded.spec.mjs",
     "lint": "eslint form-urlencoded.js",
-    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js",
+    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js && npm run unicode",
+    "unicode": "node ./restore-unicode-removed-by-babel.js",
     "prepare": "npm start && npm run lint && npm test"
   },
   "babel": {
