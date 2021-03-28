@@ -46,12 +46,12 @@
     "@babel/core": "^7.12.2",
     "@babel/eslint-parser": "7.13.10",
     "@babel/preset-env": "^7.13.12",
-    "ava": "^3.15.0",
+    "ava": "^4.0.0-alpha.1",
     "eslint": "^7.23.0",
     "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
-    "test": "ava form-urlencoded.spec.js",
+    "test": "ava form-urlencoded.spec.mjs",
     "lint": "eslint form-urlencoded.js",
     "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js",
     "prepare": "npm start && npm run lint && npm test"
