@@ -1,3 +1,8 @@
+// babel and "@babel/plugin-transform-unicode-regex" stopped working
+// uupdate the file manually
+require('child_process').execSync(
+  'sed -i "s/g, encode/gu, encode/" form-urlencoded.dist.js');
+
 const test = require('ava');
 const formurlencoded = require('.').default;
 

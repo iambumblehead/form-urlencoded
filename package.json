@@ -2,12 +2,18 @@
   "name": "form-urlencoded",
   "main": "form-urlencoded.dist",
   "browser": "form-urlencoded.dist",
-  "module": "form-urlencoded",
-  "version": "4.2.1",
+  "module": "form-urlencoded.js",
+  "version": "4.4.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
+  "types": "form-urlencoded.d.ts",
+  "files": [
+    "form-urlencoded.dist",
+    "form-urlencoded.js",
+    "form-urlencoded.d.ts"
+  ],
   "contributors": [
     {
       "name": "James",
@@ -36,20 +42,23 @@
     "json encode"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.1",
-    "@babel/plugin-transform-unicode-regex": "^7.10.1",
-    "@babel/preset-env": "^7.10.1",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "ava": "^3.8.2"
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.12.2",
+    "@babel/eslint-parser": "7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "ava": "^3.15.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
     "test": "ava form-urlencoded.spec.js",
     "lint": "eslint form-urlencoded.js",
-    "start": "./node_modules/.bin/babel form-urlencoded.js --out-file form-urlencoded.dist.js --presets=@babel/env --plugins=@babel/plugin-transform-unicode-regex",
+    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js",
     "prepare": "npm start && npm run lint && npm test"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
