@@ -18,7 +18,7 @@ var _default = function _default(data) {
       whitespace = _opts$whitespace === void 0 ? '+' : _opts$whitespace;
 
   var encode = function encode(value) {
-    return String(value).replace(/(?:(?![ !'-\*~])[\s\S])/g, encodeURIComponent).replace(/ /g, whitespace).replace(/[!'()~*]/g, function (ch) {
+    return String(value).replace(/(?:(?![ !'-\*~])[\s\S])/gu, encodeURIComponent).replace(/ /g, whitespace).replace(/[!'()~*]/g, function (ch) {
       return "%".concat(ch.charCodeAt().toString(16).slice(-2).toUpperCase());
     });
   };
