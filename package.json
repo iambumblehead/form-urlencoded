@@ -53,7 +53,8 @@
   "scripts": {
     "test": "ava form-urlencoded.spec.mjs",
     "lint": "eslint form-urlencoded.js",
-    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js",
+    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js && npm run unicode",
+    "unicode": "node ./restore-unicode-removed-by-babel.js",
     "prepare": "npm start && npm run lint && npm test"
   },
   "babel": {
