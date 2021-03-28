@@ -2,12 +2,18 @@
   "name": "form-urlencoded",
   "main": "form-urlencoded.dist",
   "browser": "form-urlencoded.dist",
-  "module": "form-urlencoded",
+  "module": "form-urlencoded.js",
   "version": "4.2.1",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
+  "types": "form-urlencoded.d.ts",
+  "files": [
+    "form-urlencoded.dist",
+    "form-urlencoded.js",
+    "form-urlencoded.d.ts"
+  ],
   "contributors": [
     {
       "name": "James",
