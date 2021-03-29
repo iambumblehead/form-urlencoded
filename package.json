@@ -1,14 +1,14 @@
 {
   "name": "form-urlencoded",
-  "main": "form-urlencoded.dist",
-  "browser": "form-urlencoded.dist",
+  "main": "form-urlencoded.dist.js",
+  "browser": "form-urlencoded.dist.js",
   "module": "form-urlencoded.js",
-  "version": "4.4.1",
+  "types": "form-urlencoded.d.ts",
+  "version": "4.4.2",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "types": "form-urlencoded.d.ts",
   "files": [
     "form-urlencoded.dist.js",
     "form-urlencoded.js",
