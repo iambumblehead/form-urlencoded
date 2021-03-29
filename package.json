@@ -10,7 +10,7 @@
   "readmeFilename": "README.md",
   "types": "form-urlencoded.d.ts",
   "files": [
-    "form-urlencoded.dist",
+    "form-urlencoded.dist.js",
     "form-urlencoded.js",
     "form-urlencoded.d.ts"
   ],
