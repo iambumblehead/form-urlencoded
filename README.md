@@ -9,7 +9,7 @@ Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTM
 ```javascript
 import formurlencoded from 'form-urlencoded';
 // or:
-// var formurlencoded = require('form-urlencoded').default;
+// var formurlencoded = require('form-urlencoded');
 
 const obj = {
   str : 'val',
@@ -55,7 +55,8 @@ console.log(formurlencoded(obj, {
 
 changelog
 
- * 4.5.0, add exports to package.json to support native esm
+ * 6.0.0, add exports to package.json to support native esm
+ * 5.5.0, add exports to package.json to support native esm (unpublished)
 
 
 (The MIT License)
