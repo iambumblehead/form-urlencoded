@@ -10,7 +10,7 @@
       "import": "./form-urlencoded.mjs"
     },
     "./": "./"
-  },  
+  },
   "version": "4.5.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
@@ -49,7 +49,8 @@
     "json encode"
   ],
   "devDependencies": {
-    "@babel/eslint-parser": "7.13.10",
+    "@babel/core": "7.13.15",
+    "@babel/eslint-parser": "7.13.14",
     "ava": "^4.0.0-alpha.2",
     "eslint": "^7.23.0",
     "eslint-plugin-import": "^2.14.0",
