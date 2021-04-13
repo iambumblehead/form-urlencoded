@@ -1,17 +1,24 @@
 {
   "name": "form-urlencoded",
-  "main": "form-urlencoded.dist.js",
-  "browser": "form-urlencoded.dist.js",
-  "module": "form-urlencoded.js",
+  "main": "form-urlencoded.js",
+  "browser": "form-urlencoded.js",
+  "module": "form-urlencoded.mjs",
   "types": "form-urlencoded.d.ts",
-  "version": "4.4.2",
+  "exports": {
+    ".": {
+      "require": "./form-urlencoded.js",
+      "import": "./form-urlencoded.mjs"
+    },
+    "./": "./"
+  },  
+  "version": "4.5.0",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "files": [
-    "form-urlencoded.dist.js",
     "form-urlencoded.js",
+    "form-urlencoded.mjs",
     "form-urlencoded.d.ts"
   ],
   "contributors": [
@@ -42,24 +49,19 @@
     "json encode"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.12.2",
     "@babel/eslint-parser": "7.13.10",
-    "@babel/preset-env": "^7.13.12",
-    "ava": "^4.0.0-alpha.1",
+    "ava": "^4.0.0-alpha.2",
     "eslint": "^7.23.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "sucrase": "3.18.1"
+  },
+  "babel": {
+    "presets": []
   },
   "scripts": {
     "test": "ava form-urlencoded.spec.mjs",
-    "lint": "eslint form-urlencoded.js",
-    "start": "babel form-urlencoded.js --out-file form-urlencoded.dist.js && npm run unicode",
-    "unicode": "node ./restore-unicode-removed-by-babel.js",
+    "lint": "eslint form-urlencoded.mjs",
+    "start": "cp form-urlencoded.mjs form-urlencoded.js && sed -i 's/export default/module.exports =/' form-urlencoded.js",
     "prepare": "npm start && npm run lint && npm test"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
   }
 }

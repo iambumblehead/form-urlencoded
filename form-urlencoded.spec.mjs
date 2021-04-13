@@ -1,7 +1,5 @@
 import test from 'ava';
-import formurlencodeddist from './form-urlencoded.dist.js';
-
-const formurlencoded = formurlencodeddist.default;
+import formurlencoded from './form-urlencoded.js';
 
 // tests assume behaviour not given in ecmascript specification,
 // object properties accessed in 'order'
