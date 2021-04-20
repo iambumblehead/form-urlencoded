@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.2 - 2021-04-20
+
+* Use node 15 for build and publish pipeline
+
 ## 6.0.1 - 2021-04-20
 
 * Added github actions files for testing and publishing,
