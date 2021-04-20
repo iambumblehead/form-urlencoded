@@ -2,7 +2,7 @@ form-urlencoded
 ===============
 **(c)[Bumblehead][0], [JBlashill][6]**
 
-[![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded) [![Build Status](https://travis-ci.org/iambumblehead/form-urlencoded.svg?branch=master)](https://travis-ci.org/iambumblehead/form-urlencoded)
+[![npm version](https://badge.fury.io/js/form-urlencoded.svg)](https://badge.fury.io/js/form-urlencoded) [![Build Status](https://github.com/iambumblehead/form-urlencoded/workflows/nodejs-ci/badge.svg)][2]
 
 Returns 'x-www-form-urlencoded' string data, an encoding often used when an [HTML form is submitted][1]. Form data is serialised in [this format][2] and sent to a server.
 
@@ -68,3 +68,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+[2]: https://github.com/iambumblehead/form-urlencoded "form-urlencoded"
