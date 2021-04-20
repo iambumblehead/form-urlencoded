@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.0.1 - 2021-04-20
+
+* Added github actions files for testing and publishing,
+* Added changelog from @Vestride
+
 ## 6.0.0 - 2021-04-13
 
 * Add `exports` field to the `package.json` to support native esm.
