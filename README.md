@@ -53,11 +53,6 @@ console.log(formurlencoded(obj, {
 
 ![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png)
 
-changelog
-
- * 6.0.0, add exports to package.json to support native esm
- * 5.5.0, add exports to package.json to support native esm (unpublished)
-
 
 (The MIT License)
 
