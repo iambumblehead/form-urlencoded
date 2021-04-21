@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.3 - 2021-04-21
+
+* add README.md to published files list
+
 ## 6.0.2 - 2021-04-20
 
 * Use node 15 for build and publish pipeline
