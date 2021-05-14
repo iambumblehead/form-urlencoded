@@ -11,7 +11,7 @@
     },
     "./": "./"
   },
-  "version": "6.0.3",
+  "version": "6.0.4",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -50,13 +50,8 @@
     "json encode"
   ],
   "devDependencies": {
-    "@babel/core": "7.13.16",
-    "@babel/eslint-parser": "7.13.14",
     "ava": "^4.0.0-alpha.2",
-    "eslint": "^7.24.0"
-  },
-  "babel": {
-    "presets": []
+    "eslint": "^7.26.0"
   },
   "scripts": {
     "test": "ava form-urlencoded.spec.mjs",
