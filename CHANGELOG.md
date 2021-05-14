@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.4 - 2021-05-14
+
+* remove un-used babel devDependencies
+
 ## 6.0.3 - 2021-04-21
 
 * add README.md to published files list

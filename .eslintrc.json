@@ -3,9 +3,9 @@
   "env": {
     "browser": true
   },
-  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2015
   },
   "globals": {
     "jasmine": false,
