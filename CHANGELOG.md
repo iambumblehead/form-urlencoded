@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.0.5 - 2021-10-20
+
+* version bump
+* remove `package-lock.json`, no depedencies so make bot and install warnings go away
+
 ## 6.0.4 - 2021-05-14
 
 * remove un-used babel devDependencies
