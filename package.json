@@ -11,7 +11,7 @@
     },
     "./": "./"
   },
-  "version": "6.0.5",
+  "version": "6.0.6",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",

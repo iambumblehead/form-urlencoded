@@ -1,6 +1,10 @@
 # Changelog
 
-## 6.0.5 - 2021-10-20
+## 6.0.6 - 2022-02-03
+
+* update typescript definition
+
+## 6.0.5 - 2021-10-20w
 
 * version bump
 * remove `package-lock.json`, no depedencies so make bot and install warnings go away
