@@ -54,7 +54,7 @@
     "eslint": "^7.26.0"
   },
   "scripts": {
-    "test": "npm run prepublishOnly && ava form-urlencoded.spec.mjs",
+    "test": "npm start && ava form-urlencoded.spec.mjs",
     "lint": "eslint form-urlencoded.mjs",
     "start": "cp form-urlencoded.mjs form-urlencoded.js && sed -i 's/export default/module.exports =/' form-urlencoded.js",
     "prepublishOnly": "npm start && npm run lint && npm test"
