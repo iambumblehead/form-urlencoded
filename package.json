@@ -11,7 +11,7 @@
     },
     "./": "./"
   },
-  "version": "6.0.6",
+  "version": "6.0.7",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -54,9 +54,9 @@
     "eslint": "^7.26.0"
   },
   "scripts": {
-    "test": "ava form-urlencoded.spec.mjs",
+    "test": "npm start && ava form-urlencoded.spec.mjs",
     "lint": "eslint form-urlencoded.mjs",
     "start": "cp form-urlencoded.mjs form-urlencoded.js && sed -i 's/export default/module.exports =/' form-urlencoded.js",
-    "prepare": "npm start && npm run lint && npm test"
+    "prepublishOnly": "npm start && npm run lint && npm test"
   }
 }
