@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.7 - 2022-07-23
+
+* use prepublishOnly rather than prepare
+
 ## 6.0.6 - 2022-02-03
 
 * update typescript definition
