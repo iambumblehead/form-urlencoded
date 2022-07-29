@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.0 - 2022-07-29
+
+* improve package.json import export re TypeScript 4.7 NodeNext, credit @scott-lc
+
 ## 6.0.7 - 2022-07-23
 
 * use prepublishOnly rather than prepare
@@ -8,7 +12,7 @@
 
 * update typescript definition
 
-## 6.0.5 - 2021-10-20w
+## 6.0.5 - 2021-10-20
 
 * version bump
 * remove `package-lock.json`, no depedencies so make bot and install warnings go away
