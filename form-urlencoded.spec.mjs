@@ -132,6 +132,22 @@ test('return encoded data, without null', t => t.is(
   'propArr1%5B2%5D=1'
 ));
 
+test('return encoded data, with empty arrays', t => t.is(
+  formurlencoded({
+    propArr1 : [ 1, 2, 3 ],
+    propArr2 : []
+  }),
+  'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3&propArr2%5B%5D'
+));
+
+test('return encoded data, without empty arrays', t => t.is(
+  formurlencoded({
+    propArr1 : [ 1, 2, 3 ],
+    propArr2 : []
+  }, { ignoreEmptyArrays : true }),
+  'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3'
+));
+
 test('return encoded set', t => t.is(
   formurlencoded({
     set : new Set([ 1, 'two' ])
