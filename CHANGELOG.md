@@ -4,6 +4,7 @@
 
 * [add support for option 'ignoreEmptyArray',][611] credit @Sanva
 * [remove ava and update unit-test pipeline to node v20][612]
+* [normalize git url at package.json](https://github.com/iambumblehead/form-urlencoded/pull/50)
 
 [611]: https://github.com/iambumblehead/form-urlencoded/pull/48
 [612]: https://github.com/iambumblehead/form-urlencoded/pull/49
