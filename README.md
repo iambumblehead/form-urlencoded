@@ -32,6 +32,7 @@ console.log(formurlencoded(obj, {
 // %5B%5D=6&num=0&obj%5Bprop2%5D%5B%5D=elem&str=val
 
 console.log(formurlencoded(obj, {
+  ignoreEmptyArray: true
   ignorenull : true,
   useDot : true,
   skipIndex : true,

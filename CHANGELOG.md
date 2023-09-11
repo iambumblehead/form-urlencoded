@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.1.1 - 2023-09-10
+
+* [add support for option 'ignoreEmptyArray',][611] credit @Sanva
+* [remove ava and update unit-test pipeline to node v20][612]
+
+[611]: https://github.com/iambumblehead/form-urlencoded/pull/48
+[612]: https://github.com/iambumblehead/form-urlencoded/pull/49
+
+
 ## 6.1.0 - 2022-07-29
 
 * [improve package.json import export][610] re TypeScript 4.7 NodeNext, credit @scott-lc
