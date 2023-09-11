@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.1.3 - 2023-09-11
+
+* [fix types file](https://github.com/iambumblehead/form-urlencoded/pull/51)
+
+
 ## 6.1.2 - 2023-09-10
 
 * [fix sytax error at README](https://github.com/iambumblehead/form-urlencoded/pull/50)
