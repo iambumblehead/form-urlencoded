@@ -8,7 +8,7 @@ declare namespace formUrlEncoded {
         sorted?: boolean;
         skipIndex?: boolean;
         ignorenull?: boolean;
-        ignoreEmptyArrays?: boolean;
+        ignoreEmptyArray?: boolean;
         skipBracket?: boolean,
         useDot?: boolean
         whitespace?: string
