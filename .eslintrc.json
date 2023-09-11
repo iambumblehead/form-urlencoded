@@ -18,6 +18,7 @@
   "rules": {
     "global-require": 0,
     "no-sequences": 0,
+    "semi": [2, "never"],
     "strict": [2, "never"],
     "one-var": [2, {
       "let": "always",
