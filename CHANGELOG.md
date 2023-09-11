@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.1.2 - 2023-09-10
+
+* [fix sytax error at README](https://github.com/iambumblehead/form-urlencoded/pull/50)
+
+
 ## 6.1.1 - 2023-09-10
 
 * [add support for option 'ignoreEmptyArray',][611] credit @Sanva
