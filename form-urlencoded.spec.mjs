@@ -144,7 +144,7 @@ test('return encoded data, without empty arrays', t => t.is(
   formurlencoded({
     propArr1 : [ 1, 2, 3 ],
     propArr2 : []
-  }, { ignoreEmptyArrays : true }),
+  }, { ignoreEmptyArray : true }),
   'propArr1%5B0%5D=1&propArr1%5B1%5D=2&propArr1%5B2%5D=3'
 ));
 

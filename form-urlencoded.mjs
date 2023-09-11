@@ -1,6 +1,7 @@
 export default (data, opts = {}) => {
   const {
-    sorted, skipIndex, ignorenull, ignoreEmptyArrays, skipBracket, useDot, whitespace = '+'
+    sorted, ignorenull, ignoreEmptyArray, useDot,
+    skipIndex, skipBracket, whitespace = '+'
   } = opts;
 
   const encode = value => String(value)
@@ -22,7 +23,7 @@ export default (data, opts = {}) => {
     ? filterjoin(arr.map((elem, index) => skipIndex
       ? nest(name + brackets, elem)
       : nest(name + '[' + index + ']', elem)))
-    : !ignoreEmptyArrays && encode(name + brackets);
+    : ignoreEmptyArray ? null : encode(name + brackets);
 
   const setnest = (name, set) => filterjoin(
     Array.from(set).map(elem => nest(name, elem)));
