@@ -52,7 +52,7 @@ console.log(formurlencoded(obj, {
 [7]: https://raw.githubusercontent.com/iambumblehead/es5classic/master/es5classic_120x120.png
 
 
-![scrounge](https://github.com/iambumblehead/scroungejs/raw/master/img/hand.png)
+![scrounge](https://github.com/iambumblehead/scroungejs/raw/main/img/hand.png)
 
 
 (The MIT License)
