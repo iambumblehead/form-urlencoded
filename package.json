@@ -9,7 +9,7 @@
     "require": "./form-urlencoded.js",
     "import": "./form-urlencoded.mjs"
   },
-  "version": "6.1.4",
+  "version": "6.1.5",
   "description": "Return an object as an 'x-www-form-urlencoded' string",
   "author": "Chris <chris@bumblehead.com>",
   "license": "MIT",
@@ -48,7 +48,7 @@
     "json encode"
   ],
   "devDependencies": {
-    "eslint": "^7.26.0"
+    "eslint": "^9.1.1"
   },
   "scripts": {
     "test": "npm start && node --test form-urlencoded.spec.mjs",
