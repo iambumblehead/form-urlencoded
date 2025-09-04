@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.6 - 2025-09-04
+
+* [version bump](https://github.com/iambumblehead/form-urlencoded/pull/55)
+
 ## 6.1.5 - 2024-04-29
 
 * [update eslint to version 9](https://github.com/iambumblehead/form-urlencoded/pull/54)
