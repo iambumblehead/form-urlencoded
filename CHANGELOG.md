@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.7 - 2026-05-29
+
+* [increment eslint,](https://github.com/iambumblehead/form-urlencoded/pull/56) increment node versions used in ci environments and version bump
+
 ## 6.1.6 - 2025-09-04
 
 * [version bump](https://github.com/iambumblehead/form-urlencoded/pull/55)
